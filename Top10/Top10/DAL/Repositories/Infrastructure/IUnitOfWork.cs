@@ -4,8 +4,8 @@
     {
         FeedbackRepository FeedbackRepository { get; }
         QuestionRepository QuestionRepository { get; }
-        StudentGradeRepository StudentGradeRepository { get; }
-        StudentRepository StudentRepository { get; }
-        StudentTimeRepository StudentTimeRepository { get; }
+        UserGradeRepository UserGradeRepository { get; }
+        UserRepository UserRepository { get; }
+        UserTimeRepository UserTimeRepository { get; }
     }
 }

@@ -108,7 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\Infrastructure\BaseManager.cs" />
-    <Compile Include="BLL\StudentManager.cs" />
+    <Compile Include="BLL\UserManager.cs" />
     <Compile Include="DAL\Model\Feedback.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -130,16 +130,16 @@
     <Compile Include="DAL\Model\Question.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\Model\Student.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\Model\StudentGrade.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\Model\StudentTime.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="DAL\Model\sysdiagram.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model\User.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model\UserGrade.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Model\UserTime.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Repositories\QuestionRepository.cs" />
@@ -148,9 +148,9 @@
     <Compile Include="DAL\Repositories\Infrastructure\RepositoryBase.cs" />
     <Compile Include="DAL\Repositories\Infrastructure\Top10Context.cs" />
     <Compile Include="DAL\Repositories\Infrastructure\UnitOfWork.cs" />
-    <Compile Include="DAL\Repositories\StudentGradeRepository.cs" />
-    <Compile Include="DAL\Repositories\StudentRepository.cs" />
-    <Compile Include="DAL\Repositories\StudentTimeRepository.cs" />
+    <Compile Include="DAL\Repositories\UserGradeRepository.cs" />
+    <Compile Include="DAL\Repositories\UserRepository.cs" />
+    <Compile Include="DAL\Repositories\UserTimeRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

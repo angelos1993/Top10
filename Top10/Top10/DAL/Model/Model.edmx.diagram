@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ca37a8308a274ceeab434c32a63ad104" Name="Diagram1">
+      <Diagram DiagramId="1562040e2b444678ac39c4013f7f21fb" Name="Diagram1">
         <EntityTypeShape EntityType="Top10Model.Feedback" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Top10Model.Question" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Top10Model.StudentGrade" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Top10Model.Student" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Top10Model.StudentTime" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Top10Model.sysdiagram" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Top10Model.UserGrade" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Top10Model.User" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Top10Model.UserTime" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="Top10Model.FK_StudentGrades_Questions" ManuallyRouted="false" />
         <AssociationConnector Association="Top10Model.FK_StudentGrades_Students" ManuallyRouted="false" />
         <AssociationConnector Association="Top10Model.FK_StudentTimes_Students" ManuallyRouted="false" />

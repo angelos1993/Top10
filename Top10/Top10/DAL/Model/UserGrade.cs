@@ -12,13 +12,15 @@ namespace Top10.DAL.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class StudentTime
+    public partial class UserGrade
     {
         public int Id { get; set; }
-        public int StudentId { get; set; }
         public System.DateTime Date { get; set; }
-        public int SpentSeconds { get; set; }
+        public int StudentId { get; set; }
+        public int QuestionId { get; set; }
+        public string Answer { get; set; }
     
-        public virtual Student Student { get; set; }
+        public virtual Question Question { get; set; }
+        public virtual User User { get; set; }
     }
 }

@@ -8,8 +8,8 @@ namespace Top10
     {
         #region Properties
 
-        private StudentManager _studentManager;
-        private StudentManager StudentManager => _studentManager ?? (_studentManager = new StudentManager());
+        private UserManager _userManager;
+        private UserManager UserManager => _userManager ?? (_userManager = new UserManager());
 
         #endregion
 
@@ -22,8 +22,8 @@ namespace Top10
 
         protected void BtnLogin_OnClick(object sender, EventArgs e)
         {
-            var student = StudentManager.Login(TxtUsername.Text, TxtPassword.Text);
-            if (student != null)
+            var user = UserManager.Login(TxtUsername.Text, TxtPassword.Text);
+            if (user != null)
             {
 
             }

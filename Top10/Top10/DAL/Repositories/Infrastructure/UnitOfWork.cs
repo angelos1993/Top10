@@ -6,9 +6,9 @@
 
         private FeedbackRepository _feedbackRepository;
         private QuestionRepository _questionRepository;
-        private StudentGradeRepository _studentGradeRepository;
-        private StudentRepository _studentRepository;
-        private StudentTimeRepository _studentTimeRepository;
+        private UserGradeRepository _userGradeRepository;
+        private UserRepository _userRepository;
+        private UserTimeRepository _userTimeRepository;
 
         #endregion
 
@@ -20,14 +20,14 @@
         public QuestionRepository QuestionRepository =>
             _questionRepository ?? (_questionRepository = new QuestionRepository());
 
-        public StudentGradeRepository StudentGradeRepository =>
-            _studentGradeRepository ?? (_studentGradeRepository = new StudentGradeRepository());
+        public UserGradeRepository UserGradeRepository =>
+            _userGradeRepository ?? (_userGradeRepository = new UserGradeRepository());
 
-        public StudentRepository StudentRepository =>
-            _studentRepository ?? (_studentRepository = new StudentRepository());
+        public UserRepository UserRepository =>
+            _userRepository ?? (_userRepository = new UserRepository());
 
-        public StudentTimeRepository StudentTimeRepository =>
-            _studentTimeRepository ?? (_studentTimeRepository = new StudentTimeRepository());
+        public UserTimeRepository UserTimeRepository =>
+            _userTimeRepository ?? (_userTimeRepository = new UserTimeRepository());
 
         #endregion
     }

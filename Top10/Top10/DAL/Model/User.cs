@@ -12,13 +12,13 @@ namespace Top10.DAL.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Student
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Student()
+        public User()
         {
-            this.StudentGrades = new HashSet<StudentGrade>();
-            this.StudentTimes = new HashSet<StudentTime>();
+            this.UserGrades = new HashSet<UserGrade>();
+            this.UserTimes = new HashSet<UserTime>();
         }
     
         public int Id { get; set; }
@@ -28,8 +28,8 @@ namespace Top10.DAL.Model
         public bool IsAdmin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StudentGrade> StudentGrades { get; set; }
+        public virtual ICollection<UserGrade> UserGrades { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StudentTime> StudentTimes { get; set; }
+        public virtual ICollection<UserTime> UserTimes { get; set; }
     }
 }

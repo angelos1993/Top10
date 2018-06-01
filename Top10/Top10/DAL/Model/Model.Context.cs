@@ -27,9 +27,9 @@ namespace Top10.DAL.Model
     
         public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
-        public virtual DbSet<StudentGrade> StudentGrades { get; set; }
-        public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<StudentTime> StudentTimes { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<UserGrade> UserGrades { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserTime> UserTimes { get; set; }
     }
 }

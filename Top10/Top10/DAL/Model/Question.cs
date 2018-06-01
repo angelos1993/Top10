@@ -17,7 +17,7 @@ namespace Top10.DAL.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Question()
         {
-            this.StudentGrades = new HashSet<StudentGrade>();
+            this.UserGrades = new HashSet<UserGrade>();
         }
     
         public int Id { get; set; }
@@ -30,6 +30,6 @@ namespace Top10.DAL.Model
         public string CorrectChoice { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<StudentGrade> StudentGrades { get; set; }
+        public virtual ICollection<UserGrade> UserGrades { get; set; }
     }
 }

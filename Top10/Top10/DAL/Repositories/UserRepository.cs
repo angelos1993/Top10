@@ -3,7 +3,7 @@ using Top10.DAL.Repositories.Infrastructure;
 
 namespace Top10.DAL.Repositories
 {
-    public class StudentRepository : RepositoryBase<Student>
+    public class UserRepository : RepositoryBase<User>
     {
     }
 }

@@ -26,35 +26,6 @@
           <Property Name="ChoiceD" Type="nvarchar(max)" Nullable="false" />
           <Property Name="CorrectChoice" Type="char" MaxLength="10" Nullable="false" />
         </EntityType>
-        <EntityType Name="StudentGrades">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Date" Type="datetime" Nullable="false" />
-          <Property Name="StudentId" Type="int" Nullable="false" />
-          <Property Name="QuestionId" Type="int" Nullable="false" />
-          <Property Name="Answer" Type="char" MaxLength="10" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Students">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ArabicName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="EnglishName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="IsAdmin" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="StudentTimes">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="StudentId" Type="int" Nullable="false" />
-          <Property Name="Date" Type="datetime" Nullable="false" />
-          <Property Name="SpentSeconds" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -65,38 +36,67 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="UserGrades">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="QuestionId" Type="int" Nullable="false" />
+          <Property Name="Answer" Type="char" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArabicName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EnglishName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTimes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="SpentSeconds" Type="int" Nullable="false" />
+        </EntityType>
         <Association Name="FK_StudentGrades_Questions">
           <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
-          <End Role="StudentGrades" Type="Self.StudentGrades" Multiplicity="*" />
+          <End Role="UserGrades" Type="Self.UserGrades" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Questions">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="StudentGrades">
+            <Dependent Role="UserGrades">
               <PropertyRef Name="QuestionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_StudentGrades_Students">
-          <End Role="Students" Type="Self.Students" Multiplicity="1" />
-          <End Role="StudentGrades" Type="Self.StudentGrades" Multiplicity="*" />
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserGrades" Type="Self.UserGrades" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Students">
+            <Principal Role="Users">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="StudentGrades">
+            <Dependent Role="UserGrades">
               <PropertyRef Name="StudentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_StudentTimes_Students">
-          <End Role="Students" Type="Self.Students" Multiplicity="1" />
-          <End Role="StudentTimes" Type="Self.StudentTimes" Multiplicity="*" />
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserTimes" Type="Self.UserTimes" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Students">
+            <Principal Role="Users">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="StudentTimes">
+            <Dependent Role="UserTimes">
               <PropertyRef Name="StudentId" />
             </Dependent>
           </ReferentialConstraint>
@@ -104,21 +104,21 @@
         <EntityContainer Name="Top10ModelStoreContainer">
           <EntitySet Name="Feedbacks" EntityType="Self.Feedbacks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StudentGrades" EntityType="Self.StudentGrades" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StudentTimes" EntityType="Self.StudentTimes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserGrades" EntityType="Self.UserGrades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTimes" EntityType="Self.UserTimes" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_StudentGrades_Questions" Association="Self.FK_StudentGrades_Questions">
             <End Role="Questions" EntitySet="Questions" />
-            <End Role="StudentGrades" EntitySet="StudentGrades" />
+            <End Role="UserGrades" EntitySet="UserGrades" />
           </AssociationSet>
           <AssociationSet Name="FK_StudentGrades_Students" Association="Self.FK_StudentGrades_Students">
-            <End Role="Students" EntitySet="Students" />
-            <End Role="StudentGrades" EntitySet="StudentGrades" />
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserGrades" EntitySet="UserGrades" />
           </AssociationSet>
           <AssociationSet Name="FK_StudentTimes_Students" Association="Self.FK_StudentTimes_Students">
-            <End Role="Students" EntitySet="Students" />
-            <End Role="StudentTimes" EntitySet="StudentTimes" />
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserTimes" EntitySet="UserTimes" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -146,41 +146,7 @@
           <Property Name="ChoiceC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ChoiceD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CorrectChoice" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="StudentGrades" Relationship="Self.FK_StudentGrades_Questions" FromRole="Questions" ToRole="StudentGrades" />
-        </EntityType>
-        <EntityType Name="StudentGrade">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="StudentId" Type="Int32" Nullable="false" />
-          <Property Name="QuestionId" Type="Int32" Nullable="false" />
-          <Property Name="Answer" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Question" Relationship="Self.FK_StudentGrades_Questions" FromRole="StudentGrades" ToRole="Questions" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_StudentGrades_Students" FromRole="StudentGrades" ToRole="Students" />
-        </EntityType>
-        <EntityType Name="Student">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ArabicName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="EnglishName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="StudentGrades" Relationship="Self.FK_StudentGrades_Students" FromRole="Students" ToRole="StudentGrades" />
-          <NavigationProperty Name="StudentTimes" Relationship="Self.FK_StudentTimes_Students" FromRole="Students" ToRole="StudentTimes" />
-        </EntityType>
-        <EntityType Name="StudentTime">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StudentId" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="SpentSeconds" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_StudentTimes_Students" FromRole="StudentTimes" ToRole="Students" />
+          <NavigationProperty Name="UserGrades" Relationship="Self.FK_StudentGrades_Questions" FromRole="Questions" ToRole="UserGrades" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -192,38 +158,72 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="UserGrade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="QuestionId" Type="Int32" Nullable="false" />
+          <Property Name="Answer" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Question" Relationship="Self.FK_StudentGrades_Questions" FromRole="UserGrades" ToRole="Questions" />
+          <NavigationProperty Name="User" Relationship="Self.FK_StudentGrades_Students" FromRole="UserGrades" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArabicName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EnglishName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="UserGrades" Relationship="Self.FK_StudentGrades_Students" FromRole="Users" ToRole="UserGrades" />
+          <NavigationProperty Name="UserTimes" Relationship="Self.FK_StudentTimes_Students" FromRole="Users" ToRole="UserTimes" />
+        </EntityType>
+        <EntityType Name="UserTime">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SpentSeconds" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_StudentTimes_Students" FromRole="UserTimes" ToRole="Users" />
+        </EntityType>
         <Association Name="FK_StudentGrades_Questions">
           <End Role="Questions" Type="Self.Question" Multiplicity="1" />
-          <End Role="StudentGrades" Type="Self.StudentGrade" Multiplicity="*" />
+          <End Role="UserGrades" Type="Self.UserGrade" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Questions">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="StudentGrades">
+            <Dependent Role="UserGrades">
               <PropertyRef Name="QuestionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_StudentGrades_Students">
-          <End Role="Students" Type="Self.Student" Multiplicity="1" />
-          <End Role="StudentGrades" Type="Self.StudentGrade" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="UserGrades" Type="Self.UserGrade" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Students">
+            <Principal Role="Users">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="StudentGrades">
+            <Dependent Role="UserGrades">
               <PropertyRef Name="StudentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_StudentTimes_Students">
-          <End Role="Students" Type="Self.Student" Multiplicity="1" />
-          <End Role="StudentTimes" Type="Self.StudentTime" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="UserTimes" Type="Self.UserTime" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Students">
+            <Principal Role="Users">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="StudentTimes">
+            <Dependent Role="UserTimes">
               <PropertyRef Name="StudentId" />
             </Dependent>
           </ReferentialConstraint>
@@ -231,21 +231,21 @@
         <EntityContainer Name="Top10Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
           <EntitySet Name="Questions" EntityType="Self.Question" />
-          <EntitySet Name="StudentGrades" EntityType="Self.StudentGrade" />
-          <EntitySet Name="Students" EntityType="Self.Student" />
-          <EntitySet Name="StudentTimes" EntityType="Self.StudentTime" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="UserGrades" EntityType="Self.UserGrade" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserTimes" EntityType="Self.UserTime" />
           <AssociationSet Name="FK_StudentGrades_Questions" Association="Self.FK_StudentGrades_Questions">
             <End Role="Questions" EntitySet="Questions" />
-            <End Role="StudentGrades" EntitySet="StudentGrades" />
+            <End Role="UserGrades" EntitySet="UserGrades" />
           </AssociationSet>
           <AssociationSet Name="FK_StudentGrades_Students" Association="Self.FK_StudentGrades_Students">
-            <End Role="Students" EntitySet="Students" />
-            <End Role="StudentGrades" EntitySet="StudentGrades" />
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserGrades" EntitySet="UserGrades" />
           </AssociationSet>
           <AssociationSet Name="FK_StudentTimes_Students" Association="Self.FK_StudentTimes_Students">
-            <End Role="Students" EntitySet="Students" />
-            <End Role="StudentTimes" EntitySet="StudentTimes" />
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserTimes" EntitySet="UserTimes" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -277,38 +277,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="StudentGrades">
-            <EntityTypeMapping TypeName="Top10Model.StudentGrade">
-              <MappingFragment StoreEntitySet="StudentGrades">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
-                <ScalarProperty Name="Answer" ColumnName="Answer" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="Top10Model.Student">
-              <MappingFragment StoreEntitySet="Students">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
-                <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="StudentTimes">
-            <EntityTypeMapping TypeName="Top10Model.StudentTime">
-              <MappingFragment StoreEntitySet="StudentTimes">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="SpentSeconds" ColumnName="SpentSeconds" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="Top10Model.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -317,6 +285,38 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGrades">
+            <EntityTypeMapping TypeName="Top10Model.UserGrade">
+              <MappingFragment StoreEntitySet="UserGrades">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Top10Model.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+                <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTimes">
+            <EntityTypeMapping TypeName="Top10Model.UserTime">
+              <MappingFragment StoreEntitySet="UserTimes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="SpentSeconds" ColumnName="SpentSeconds" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

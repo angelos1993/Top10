@@ -24,38 +24,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="StudentGrades">
-      <EntityTypeMapping TypeName="Top10Model.StudentGrade">
-        <MappingFragment StoreEntitySet="StudentGrades">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
-          <ScalarProperty Name="Answer" ColumnName="Answer" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Students">
-      <EntityTypeMapping TypeName="Top10Model.Student">
-        <MappingFragment StoreEntitySet="Students">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
-          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="StudentTimes">
-      <EntityTypeMapping TypeName="Top10Model.StudentTime">
-        <MappingFragment StoreEntitySet="StudentTimes">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="SpentSeconds" ColumnName="SpentSeconds" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="Top10Model.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
@@ -64,6 +32,38 @@
           <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserGrades">
+      <EntityTypeMapping TypeName="Top10Model.UserGrade">
+        <MappingFragment StoreEntitySet="UserGrades">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Top10Model.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTimes">
+      <EntityTypeMapping TypeName="Top10Model.UserTime">
+        <MappingFragment StoreEntitySet="UserTimes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="SpentSeconds" ColumnName="SpentSeconds" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

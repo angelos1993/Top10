@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\Infrastructure\BaseManager.cs" />
+    <Compile Include="BLL\StudentManager.cs" />
     <Compile Include="DAL\Model\Feedback.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -161,6 +162,8 @@
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionManagement\SessionManager.cs" />
+    <Compile Include="SessionManagement\SessionObject.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

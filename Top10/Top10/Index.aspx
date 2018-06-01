@@ -7,4 +7,6 @@
     <asp:TextBox runat="server" ID="TxtPassword" TextMode="Password" />
     <br />
     <asp:Button runat="server" ID="BtnLogin" Text="تسجيل الدخول" OnClick="BtnLogin_OnClick" />
+    <br />
+    <asp:Label runat="server" ID="LblErrorMsg" Visible="False" />
 </asp:Content>

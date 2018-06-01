@@ -6,7 +6,7 @@
         <MappingFragment StoreEntitySet="Feedbacks">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Message" ColumnName="Message" />
-          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -40,7 +40,7 @@
         <MappingFragment StoreEntitySet="UserGrades">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
           <ScalarProperty Name="Answer" ColumnName="Answer" />
         </MappingFragment>
@@ -61,7 +61,7 @@
       <EntityTypeMapping TypeName="Top10Model.UserTime">
         <MappingFragment StoreEntitySet="UserTimes">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="SpentSeconds" ColumnName="SpentSeconds" />
         </MappingFragment>

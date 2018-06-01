@@ -15,7 +15,7 @@ namespace Top10.DAL.Model
     public partial class UserTime
     {
         public int Id { get; set; }
-        public int StudentId { get; set; }
+        public int UserId { get; set; }
         public System.DateTime Date { get; set; }
         public int SpentSeconds { get; set; }
     

@@ -16,7 +16,7 @@ namespace Top10.DAL.Model
     {
         public int Id { get; set; }
         public System.DateTime Date { get; set; }
-        public int StudentId { get; set; }
+        public int UserId { get; set; }
         public int QuestionId { get; set; }
         public string Answer { get; set; }
     

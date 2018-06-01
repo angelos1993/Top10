@@ -6,7 +6,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Questions">
     <Key>
@@ -37,7 +37,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="QuestionId" Type="int" Nullable="false" />
     <Property Name="Answer" Type="char" MaxLength="10" Nullable="false" />
   </EntityType>
@@ -56,7 +56,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="SpentSeconds" Type="int" Nullable="false" />
   </EntityType>
@@ -80,7 +80,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="UserGrades">
-        <PropertyRef Name="StudentId" />
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -92,7 +92,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="UserTimes">
-        <PropertyRef Name="StudentId" />
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

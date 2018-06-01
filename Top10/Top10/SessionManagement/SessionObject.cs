@@ -13,6 +13,11 @@
 
         #region Properties
 
+        public int UserId { get; set; }
+        public string UserArabicName { get; set; }
+        public string UserEnglishName { get; set; }
+
+
         #endregion
 
         #region Methods

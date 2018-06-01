@@ -35,3 +35,5 @@ G:\Angelos\Top10\Repo\Top10\Top10\bin\EntityFramework.dll
 G:\Angelos\Top10\Repo\Top10\Top10\bin\EntityFramework.SqlServer.dll
 G:\Angelos\Top10\Repo\Top10\Top10\bin\EntityFramework.xml
 G:\Angelos\Top10\Repo\Top10\Top10\bin\EntityFramework.SqlServer.xml
+G:\Angelos\Top10\Repo\Top10\Top10\obj\Debug\Top10.Resource.resources
+G:\Angelos\Top10\Repo\Top10\Top10\obj\Debug\Top10.csproj.GenerateResource.Cache

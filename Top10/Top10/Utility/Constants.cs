@@ -15,6 +15,7 @@ namespace Top10.Utility
             public static string Index = "Index.aspx";
             public static string Quiz = "Quiz.aspx";
             public static string TopRated = "TopRated.aspx";
+            public static string Admin = "Admin.aspx";
         }
 
         #endregion

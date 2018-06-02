@@ -73,6 +73,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin.aspx" />
     <Content Include="client\css\style.css" />
     <Content Include="client\js\script.js" />
     <Content Include="DAL\Model\Model.Context.tt">
@@ -109,6 +110,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BLL\Infrastructure\BaseManager.cs" />
     <Compile Include="BLL\UserManager.cs" />
     <Compile Include="DAL\Model\Feedback.cs">

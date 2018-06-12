@@ -32,6 +32,7 @@ namespace Top10
 
         private void PageLoad()
         {
+            //TODO: check if session is NOT null, redirect the user to Quiz.aspx or Admin.aspx based on its type
         }
 
         private void Login()

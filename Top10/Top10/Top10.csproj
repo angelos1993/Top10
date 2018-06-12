@@ -201,6 +201,7 @@
       <DependentUpon>TopRated.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utility\Constants.cs" />
+    <Compile Include="Utility\PasswordUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

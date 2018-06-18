@@ -204,6 +204,7 @@
     <Compile Include="TopRated.aspx.designer.cs">
       <DependentUpon>TopRated.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utility\CollectionExtensions.cs" />
     <Compile Include="Utility\Constants.cs" />
     <Compile Include="Utility\PasswordUtility.cs" />
   </ItemGroup>

@@ -15,6 +15,10 @@ namespace Top10
         private DateTime Now => DateTime.Now;
         private UserGradeManager _userGradeManager;
         private UserGradeManager UserGradeManager => _userGradeManager ?? (_userGradeManager = new UserGradeManager());
+        private UserTimeManager _userTimeManager;
+        private UserTimeManager UserTimeManager => _userTimeManager ?? (_userTimeManager = new UserTimeManager());
+        private QuestionManager _questionManager;
+        private QuestionManager QuestionManager => _questionManager ?? (_questionManager = new QuestionManager());
 
         #endregion
 
@@ -45,24 +49,35 @@ namespace Top10
             HideAllSections();
             if (Now < Constants.StartDate)
             {
-                //display the div that says the game will start on: [Constants.StartDate]
                 DivBeforeStartDate.Visible = true;
+                LtrStartDate.Text = Constants.StartDate.ToLongDateString();
             }
             else if (Now > Constants.EndDate)
             {
-                //display the div that says the game ended on: [Constants.EndDate]
                 DivAfterEndDate.Visible = true;
+                LtrEndDate.Text = Constants.EndDate.ToLongDateString();
             }
             else
             {
                 if (UserGradeManager.IsUserHasAnswersToday(currentSessionObject.UserId))
                 {
-                    //display the div that says: "you have answered the today's questions"
                     DivUserHadAnsweredToday.Visible = true;
+                }
+                else if (UserTimeManager.IsUserTimeoutToday(currentSessionObject.UserId))
+                {
+                    DivUserTimeoutToday.Visible = true;
                 }
                 else
                 {
                     //new quiz
+                    var questionsIdsAnsweredByUser =
+                        UserGradeManager.GetQuestionsIdsAnsweredByUser(currentSessionObject.UserId);
+                    var todaysQuestions =
+                        QuestionManager.GetQuestionsForUser(currentSessionObject.UserId, questionsIdsAnsweredByUser);
+                    var time = UserTimeManager.GetUserTodaysTime(currentSessionObject.UserId);
+                    if (time == 0)
+                        time = Constants.Timer;
+                    //TODO: display the three questions and set the timer
                     DivNewQuiz.Visible = true;
                 }
             }
@@ -73,6 +88,7 @@ namespace Top10
             DivBeforeStartDate.Visible = false;
             DivAfterEndDate.Visible = false;
             DivUserHadAnsweredToday.Visible = false;
+            DivUserTimeoutToday.Visible = false;
             DivNewQuiz.Visible = false;
         }
 

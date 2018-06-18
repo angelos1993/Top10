@@ -22,6 +22,15 @@ namespace Top10 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivBeforeStartDate;
         
         /// <summary>
+        /// LtrStartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LtrStartDate;
+        
+        /// <summary>
         /// DivAfterEndDate control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace Top10 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivAfterEndDate;
         
         /// <summary>
+        /// LtrEndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LtrEndDate;
+        
+        /// <summary>
         /// DivUserHadAnsweredToday control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,15 @@ namespace Top10 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivUserHadAnsweredToday;
+        
+        /// <summary>
+        /// DivUserTimeoutToday control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivUserTimeoutToday;
         
         /// <summary>
         /// DivNewQuiz control.

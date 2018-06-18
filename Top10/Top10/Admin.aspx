@@ -9,6 +9,7 @@
     <asp:DropDownList runat="server" ID="DdlUsers"/>
     <asp:Button runat="server" ID="BtnGeneratePasswordForUser" OnClick="BtnGeneratePasswordForUser_OnClick" Text="Generate Password" />
     <asp:Button runat="server" ID="BtnCurrentPasswordForUser" OnClick="BtnCurrentPasswordForUser_OnClick" Text="Get Current Password" />
+    <asp:Label runat="server" ID="LblUserPassword" Visible="False" />
     <br />
     <hr />
     <br />

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Web.UI;
 using Top10.BLL;
+using Top10.SessionManagement;
+using Top10.Utility;
 
 namespace Top10
 {
@@ -10,6 +12,8 @@ namespace Top10
 
         private UserManager _userManager;
         private UserManager UserManager => _userManager ?? (_userManager = new UserManager());
+        private SessionManager _sessionManager;
+        private SessionManager SessionManager => _sessionManager ?? (_sessionManager = new SessionManager());
 
         #endregion
 
@@ -33,6 +37,8 @@ namespace Top10
             if (int.TryParse(DdlUsers.SelectedValue, out int userId))
             {
                 var pass = UserManager.GetUserPasswordById(userId);
+                LblUserPassword.Text = $@"The Password is: {pass}";
+                LblUserPassword.Visible = true;
             }
         }
 
@@ -42,7 +48,10 @@ namespace Top10
 
         private void PageLoad()
         {
-            //TODO: check if session is null or the user is not admin, then go to the Index.aspx
+            var currentSessionObject = SessionManager.CurrentSessionObject;
+            if (currentSessionObject == null || !currentSessionObject.IsAdmin)
+                Response.Redirect(Constants.Pages.Index);
+
             #region Fill Users' names to the drop down
 
             DdlUsers.DataSource = UserManager.GetAllUserNames();

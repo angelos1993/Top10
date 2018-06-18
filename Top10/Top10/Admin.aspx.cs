@@ -48,9 +48,16 @@ namespace Top10
 
         private void PageLoad()
         {
+            #region Security Check
+
             var currentSessionObject = SessionManager.CurrentSessionObject;
             if (currentSessionObject == null || !currentSessionObject.IsAdmin)
+            {
                 Response.Redirect(Constants.Pages.Index);
+                return;
+            }
+
+            #endregion
 
             #region Fill Users' names to the drop down
 

@@ -2,5 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    Quiz -_-
+    <div runat="server" ID="DivBeforeStartDate">
+        DivBeforeStartDate
+    </div>
+    <div runat="server" ID="DivAfterEndDate">
+        DivAfterEndDate
+    </div>
+    <div runat="server" ID="DivUserHadAnsweredToday">
+        DivUserHadAnsweredToday
+    </div>
+    <div runat="server" ID="DivNewQuiz">
+        DivNewQuiz
+    </div>
 </asp:Content>

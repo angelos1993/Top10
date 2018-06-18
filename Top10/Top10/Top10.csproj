@@ -117,8 +117,12 @@
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BLL\FeedbackManager.cs" />
     <Compile Include="BLL\Infrastructure\BaseManager.cs" />
+    <Compile Include="BLL\QuestionManager.cs" />
+    <Compile Include="BLL\UserGradeManager.cs" />
     <Compile Include="BLL\UserManager.cs" />
+    <Compile Include="BLL\UserTimeManager.cs" />
     <Compile Include="DAL\Model\Feedback.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

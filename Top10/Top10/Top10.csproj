@@ -74,7 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin.aspx" />
+    <Content Include="client\css\bootstrap.min.css" />
     <Content Include="client\css\style.css" />
+    <Content Include="client\images\header.png" />
     <Content Include="client\js\script.js" />
     <Content Include="DAL\Model\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

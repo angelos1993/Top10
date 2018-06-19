@@ -16,15 +16,20 @@ namespace Top10.BLL
 
         public List<Question> GetQuestionsForUser(int userId, List<int> questionsIdsAnsweredByUser)
         {
-            var questionsIds = UnitOfWork.QuestionRepository
-                .Get(question => !questionsIdsAnsweredByUser.Contains(question.Id)).Select(question => question.Id);
-            questionsIds.ToList().Shuffle();
-            return GetQuestionsByIdList(questionsIds.Take(3).ToList());
-        }
-
-        public List<Question> GetQuestionsByIdList(List<int> questionsIds)
-        {
-            return UnitOfWork.QuestionRepository.Get(question => questionsIds.Contains(question.Id)).ToList();
+            var questions = UnitOfWork.QuestionRepository
+                .Get(question => !questionsIdsAnsweredByUser.Contains(question.Id)).ToList();
+            var easyQuestions = questions.Where(question => question.Mark == Constants.Marks.EasyMark).ToList();
+            var mediumQuestions = questions.Where(question => question.Mark == Constants.Marks.MediumMark).ToList();
+            var hardQuestions = questions.Where(question => question.Mark == Constants.Marks.HardMark).ToList();
+            easyQuestions.Shuffle();
+            mediumQuestions.Shuffle();
+            hardQuestions.Shuffle();
+            return new List<Question>
+            {
+                easyQuestions.FirstOrDefault(),
+                mediumQuestions.FirstOrDefault(),
+                hardQuestions.FirstOrDefault()
+            };
         }
 
         #endregion

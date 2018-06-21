@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.UI;
 using Top10.BLL;
+using Top10.SessionManagement;
 using Top10.Utility;
 
 namespace Top10
@@ -11,6 +12,8 @@ namespace Top10
 
         private UserManager _userManager;
         private UserManager UserManager => _userManager ?? (_userManager = new UserManager());
+        private SessionManager _sessionManager;
+        private SessionManager SessionManager => _sessionManager ?? (_sessionManager = new SessionManager());
 
         #endregion
 
@@ -32,7 +35,18 @@ namespace Top10
 
         private void PageLoad()
         {
-            //TODO: check if session is NOT null, redirect the user to Quiz.aspx or Admin.aspx based on its type
+            #region Security Check
+
+            var currentSessionObject = SessionManager.CurrentSessionObject;
+            if (currentSessionObject != null)
+            {
+                Response.Redirect(GetUrlToRedirect(currentSessionObject));
+                return;
+            }
+
+            #endregion
+
+            LblErrorMsg.Visible = false;
         }
 
         private void Login()
@@ -40,15 +54,22 @@ namespace Top10
             var user = UserManager.Login(TxtUsername.Text, TxtPassword.Text);
             if (user != null)
             {
-                //todo:set the session
-                //Session[""] = user;
-                Response.Redirect(Constants.Pages.Quiz);
+                SessionManager.CurrentSessionObject = new SessionObject(user);
+                Response.Redirect(GetUrlToRedirect(SessionManager.CurrentSessionObject));
             }
             else
             {
                 LblErrorMsg.Text = Resource.LoginFailedMsg;
                 LblErrorMsg.Visible = true;
+                TxtPassword.Text = string.Empty;
             }
+        }
+
+        private string GetUrlToRedirect(SessionObject currentSessionObject)
+        {
+            return currentSessionObject == null
+                ? Constants.Pages.Index
+                : (currentSessionObject.IsAdmin ? Constants.Pages.Admin : Constants.Pages.Quiz);
         }
 
         #endregion

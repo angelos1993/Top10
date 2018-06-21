@@ -5,9 +5,10 @@
 <head runat="server">
     <title>خدمة ثانوي بمير - Top 10</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="icon" href="images/icon.ico">
+    <link rel="icon" href="client/images/icon.ico">
     <link href="client/css/bootstrap.min.css" rel="stylesheet" />
     <link href="client/css/style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="client/js/script.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -18,11 +19,9 @@
             <img class="col" src="client/images/header.png" alt="image not found!" />
         </header>
         <div class="row">
-            <form id="form2" runat="server">
-                <div>
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                    </asp:ContentPlaceHolder>
-                </div>
+            <form id="form2" runat="server" class="container">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
             </form>
         </div>
         <footer class="row">

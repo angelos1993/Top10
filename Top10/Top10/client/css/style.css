@@ -3,4 +3,11 @@
 }
 
 body {
+    margin: 0 auto;
+    background-color: #f7f7f7;
+}
+
+.required-input {
+    border-color: rgb(255, 0, 0);
+    outline: 0 none;
 }

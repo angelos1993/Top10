@@ -1,13 +1,39 @@
-﻿* {
+﻿/*#region fonts */
+
+@font-face {
+    font-family: AdvertisingBold;
+    src: url('../fonts/AdvertisingBold.ttf');
+}
+
+@font-face {
+    font-family: MotkenUnicodeHor;
+    src: url('../fonts/Motken Unicode Hor.ttf');
+}
+
+@font-face {
+    font-family: XpZibaBold;
+    src: url('../fonts/xp-ziba-bold.ttf');
+}
+
+/*#endregion */
+
+* {
     direction: rtl;
+    font-family: MotkenUnicodeHor;
+    font-size: 20px;
+    text-align: right;
 }
 
 body {
-    margin: 0 auto;
     background-color: #f7f7f7;
+    margin: 0 auto;
 }
 
 .required-input {
     border-color: rgb(255, 0, 0);
     outline: 0 none;
+}
+
+.footer {
+    border-top: 1px solid #000;
 }

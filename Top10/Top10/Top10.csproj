@@ -77,6 +77,7 @@
     <Content Include="client\css\bootstrap.min.css" />
     <Content Include="client\css\style.css" />
     <Content Include="client\images\header.png" />
+    <Content Include="client\images\icon.ico" />
     <Content Include="client\js\jquery.min.js" />
     <Content Include="client\js\script-index.js" />
     <Content Include="client\js\script.js" />
@@ -100,6 +101,9 @@
     <Content Include="DAL\Model\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
+    <Content Include="client\fonts\AdvertisingBold.ttf" />
+    <Content Include="client\fonts\Motken Unicode Hor.ttf" />
+    <Content Include="client\fonts\xp-ziba-bold.ttf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

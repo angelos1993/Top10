@@ -25,10 +25,6 @@ namespace Top10
             PageLoad();
         }
 
-        protected void BtnGeneratePasswordsForAllUsers_OnClick(object sender, EventArgs e)
-        {
-        }
-
         protected void BtnGeneratePasswordForUser_OnClick(object sender, EventArgs e)
         {
         }

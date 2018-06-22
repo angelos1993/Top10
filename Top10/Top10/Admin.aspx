@@ -49,7 +49,4 @@
             </div>
         </div>
     </div>
-
-    <asp:Button runat="server" ID="BtnGeneratePasswordsForAllUsers" OnClick="BtnGeneratePasswordsForAllUsers_OnClick" Text="Generate Passwords For All Users" />
-
 </asp:Content>

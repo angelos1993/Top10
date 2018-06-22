@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Web.UI;
 using Top10.BLL;
 using Top10.SessionManagement;
@@ -32,13 +33,22 @@ namespace Top10
         {
         }
 
-        protected void BtnCurrentPasswordForUser_OnClick(object sender, EventArgs e)
+        protected void BtnCurrentUserInfo_OnClick(object sender, EventArgs e)
         {
             if (int.TryParse(DdlUsers.SelectedValue, out int userId))
             {
-                var pass = UserManager.GetUserPasswordById(userId);
-                LblUserPassword.Text = $@"The Password is: {pass}";
-                LblUserPassword.Visible = true;
+                var user = UserManager.GetUserById(userId);
+                var stringBuilder = new StringBuilder();
+                stringBuilder.Append("الاسم: ");
+                stringBuilder.Append(user.ArabicName);
+                stringBuilder.Append("<br />");
+                stringBuilder.Append("اسم المستخدم: ");
+                stringBuilder.Append(user.EnglishName);
+                stringBuilder.Append("<br />");
+                stringBuilder.Append("الرقم السري: ");
+                stringBuilder.Append(user.Password);
+                LblUserInfo.Text = stringBuilder.ToString();
+                LblUserInfo.Visible = true;
             }
         }
 
@@ -70,5 +80,10 @@ namespace Top10
         }
 
         #endregion
+
+        protected void DdlUserTypes_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

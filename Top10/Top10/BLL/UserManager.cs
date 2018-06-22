@@ -17,7 +17,8 @@ namespace Top10.BLL
         public User Login(string username, string password)
         {
             return UnitOfWork.UserRepository
-                .Get(user => user.EnglishName == username && user.Password == password).FirstOrDefault();
+                .Get(user => user.EnglishName.ToLower() == username.ToLower() && user.Password == password)
+                .FirstOrDefault();
         }
 
         public IQueryable<User> GetAllUsers()
@@ -34,12 +35,6 @@ namespace Top10.BLL
         {
             return GetAllUsers().Select(user => new {user.Id, user.ArabicName}).ToList()
                 .Select(a => new KeyValuePair<int, string>(a.Id, a.ArabicName)).ToList();
-        }
-
-        public string GetUserPasswordById(int userId)
-        {
-            return UnitOfWork.UserRepository.Get(user => user.Id == userId).Select(user => user.Password)
-                .FirstOrDefault();
         }
 
         #region Generate Passwords for all users

@@ -13,13 +13,22 @@ namespace Top10 {
     public partial class Admin {
         
         /// <summary>
-        /// BtnGeneratePasswordsForAllUsers control.
+        /// ScriptManager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnGeneratePasswordsForAllUsers;
+        protected global::System.Web.UI.ScriptManager ScriptManager;
+        
+        /// <summary>
+        /// DdlUserTypes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlUserTypes;
         
         /// <summary>
         /// DdlUsers control.
@@ -31,6 +40,15 @@ namespace Top10 {
         protected global::System.Web.UI.WebControls.DropDownList DdlUsers;
         
         /// <summary>
+        /// BtnCurrentUserInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnCurrentUserInfo;
+        
+        /// <summary>
         /// BtnGeneratePasswordForUser control.
         /// </summary>
         /// <remarks>
@@ -40,21 +58,21 @@ namespace Top10 {
         protected global::System.Web.UI.WebControls.Button BtnGeneratePasswordForUser;
         
         /// <summary>
-        /// BtnCurrentPasswordForUser control.
+        /// LblUserInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnCurrentPasswordForUser;
+        protected global::System.Web.UI.WebControls.Label LblUserInfo;
         
         /// <summary>
-        /// LblUserPassword control.
+        /// BtnGeneratePasswordsForAllUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblUserPassword;
+        protected global::System.Web.UI.WebControls.Button BtnGeneratePasswordsForAllUsers;
     }
 }

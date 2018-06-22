@@ -95,6 +95,9 @@
     <Content Include="packages.config" />
     <Content Include="Quiz.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="client\fonts\AdvertisingBold.ttf" />
+    <Content Include="client\fonts\Motken Unicode Hor.ttf" />
+    <Content Include="client\fonts\xp-ziba-bold.ttf" />
     <EntityDeploy Include="DAL\Model\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
@@ -102,9 +105,6 @@
     <Content Include="DAL\Model\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
-    <Content Include="client\fonts\AdvertisingBold.ttf" />
-    <Content Include="client\fonts\Motken Unicode Hor.ttf" />
-    <Content Include="client\fonts\xp-ziba-bold.ttf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

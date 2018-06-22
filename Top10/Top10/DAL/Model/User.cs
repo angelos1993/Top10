@@ -26,6 +26,8 @@ namespace Top10.DAL.Model
         public string EnglishName { get; set; }
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
+        public Nullable<bool> IsMale { get; set; }
+        public Nullable<int> Year { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserGrade> UserGrades { get; set; }

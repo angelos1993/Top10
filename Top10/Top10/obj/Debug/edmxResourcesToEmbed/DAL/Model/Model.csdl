@@ -53,6 +53,8 @@
     <Property Name="EnglishName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+    <Property Name="IsMale" Type="Boolean" />
+    <Property Name="Year" Type="Int32" />
     <NavigationProperty Name="UserGrades" Relationship="Self.FK_StudentGrades_Students" FromRole="Users" ToRole="UserGrades" />
     <NavigationProperty Name="UserTimes" Relationship="Self.FK_StudentTimes_Students" FromRole="Users" ToRole="UserTimes" />
   </EntityType>

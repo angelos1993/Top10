@@ -50,6 +50,8 @@
     <Property Name="EnglishName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IsAdmin" Type="bit" Nullable="false" />
+    <Property Name="IsMale" Type="bit" />
+    <Property Name="Year" Type="int" />
   </EntityType>
   <EntityType Name="UserTimes">
     <Key>

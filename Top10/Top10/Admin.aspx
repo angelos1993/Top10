@@ -5,11 +5,9 @@
     <asp:ScriptManager runat="server" ID="ScriptManager" />
     <div id="accordion">
         <div class="card">
-            <div class="card-header">
-                <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                    إستعلام عن مخدوم / تعديل بيانات مخدوم
-                </a>
-            </div>
+            <a class="card-header" data-toggle="collapse" href="#collapseOne">
+                إستعلام عن مخدوم / تعديل بيانات مخدوم
+            </a>
             <div id="collapseOne" class="collapse" data-parent="#accordion">
                 <div class="card-body">
                     <asp:UpdatePanel runat="server">
@@ -26,10 +24,45 @@
                                 </asp:DropDownList>
                                 <asp:DropDownList runat="server" ID="DdlUsers" CssClass="form-control col-md-3 ml-1" />
                                 <asp:Button runat="server" ID="BtnCurrentUserInfo" CssClass="btn btn-secondary col-md-2 ml-1" OnClick="BtnCurrentUserInfo_OnClick" Text="معلومات عن المخدوم" />
-                                <asp:Button runat="server" ID="BtnGeneratePasswordForUser" CssClass="btn btn-secondary col-md-2 ml-1" OnClick="BtnGeneratePasswordForUser_OnClick" Text="إنشاء رقم سري جديد" />
-                                <div class="form-group justify-content-center align-items-center">
-                                    <asp:Label runat="server" ID="LblUserInfo" Visible="False" CssClass="alert alert-info" />
+                                <button type="button" class="btn btn-secondary col-md-2 ml-1" data-toggle="modal" data-target="#passwordModal">إنشاء رقم سري جديد</button>
+                                <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">تأكيد</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                هل انت متأكد من انك تريد إنشاء رقم سري جديد لهذا المخدوم؟
+                                            </div>
+                                            <div class="modal-footer">
+                                                <asp:Button runat="server" ID="BtnGeneratePasswordForUser" CssClass="btn btn-primary col-md-2 ml-1" OnClick="BtnGeneratePasswordForUser_OnClick" Text="نعم" />
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">لا</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="row justify-content-center mt-1">
+                                <div class="row alert alert-success" runat="server" ID="DivPasswordCreatedSuccessfully" Visible="False">تم إنشاء رقم سري جديد بنجاح !</div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <table class="col-md-8 col-12 table table-hover table-bordered" runat="server" id="TblUserInfo" visible="False">
+                                    <tr>
+                                        <td>الاسم</td>
+                                        <td>
+                                            <asp:Literal runat="server" ID="LtrUserArabicName" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>اسم المستخدم</td>
+                                        <td>
+                                            <asp:Literal runat="server" ID="LtrUserEnglishName" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>الرقم السري</td>
+                                        <td>
+                                            <asp:Literal runat="server" ID="LtrUserPassword" /></td>
+                                    </tr>
+                                </table>
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>
@@ -37,11 +70,9 @@
             </div>
         </div>
         <div class="card">
-            <div class="card-header">
-                <a class="card-link" data-toggle="collapse" href="#collapseTwo">
-                    درجات المخدومين
-                </a>
-            </div>
+            <a class="card-header" data-toggle="collapse" href="#collapseTwo">
+                درجات المخدومين
+            </a>
             <div id="collapseTwo" class="collapse" data-parent="#accordion">
                 <div class="card-body">
                     Lorem ipsum..

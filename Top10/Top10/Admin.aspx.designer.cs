@@ -58,12 +58,48 @@ namespace Top10 {
         protected global::System.Web.UI.WebControls.Button BtnGeneratePasswordForUser;
         
         /// <summary>
-        /// LblUserInfo control.
+        /// DivPasswordCreatedSuccessfully control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblUserInfo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivPasswordCreatedSuccessfully;
+        
+        /// <summary>
+        /// TblUserInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable TblUserInfo;
+        
+        /// <summary>
+        /// LtrUserArabicName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LtrUserArabicName;
+        
+        /// <summary>
+        /// LtrUserEnglishName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LtrUserEnglishName;
+        
+        /// <summary>
+        /// LtrUserPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LtrUserPassword;
     }
 }

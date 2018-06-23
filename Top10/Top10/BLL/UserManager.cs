@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Top10.BLL.Infrastructure;
 using Top10.DAL.Model;
 using static Top10.Utility.PasswordUtility;
@@ -31,10 +30,9 @@ namespace Top10.BLL
             return GetAllUsers().FirstOrDefault(user => user.Id == userId);
         }
 
-        public List<KeyValuePair<int, string>> GetAllUserNames()
+        public void UpdateUser(User user)
         {
-            return GetAllUsers().Select(user => new {user.Id, user.ArabicName}).ToList()
-                .Select(a => new KeyValuePair<int, string>(a.Id, a.ArabicName)).ToList();
+            UnitOfWork.UserRepository.Update(user);
         }
 
         #region Generate Passwords for all users

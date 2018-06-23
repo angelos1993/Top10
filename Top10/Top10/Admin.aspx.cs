@@ -1,9 +1,12 @@
 ﻿using System;
-using System.Text;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI;
 using Top10.BLL;
+using Top10.DAL.Model;
 using Top10.SessionManagement;
 using Top10.Utility;
+using static Top10.Utility.PasswordUtility;
 
 namespace Top10
 {
@@ -15,6 +18,8 @@ namespace Top10
         private UserManager UserManager => _userManager ?? (_userManager = new UserManager());
         private SessionManager _sessionManager;
         private SessionManager SessionManager => _sessionManager ?? (_sessionManager = new SessionManager());
+        private List<User> _allUsers;
+        private List<User> AllUsers => _allUsers ?? (_allUsers = UserManager.GetAllUsers().ToList());
 
         #endregion
 
@@ -27,25 +32,69 @@ namespace Top10
 
         protected void BtnGeneratePasswordForUser_OnClick(object sender, EventArgs e)
         {
+            if (!int.TryParse(DdlUsers.SelectedValue, out int userId))
+                return;
+            var user = AllUsers.FirstOrDefault(u => u.Id == userId);
+            if (user == null)
+                return;
+            user.Password = GetRandomPassword();
+            UserManager.UpdateUser(user);
+            DivPasswordCreatedSuccessfully.Visible = true;
+            DisplayUser(user);
         }
 
         protected void BtnCurrentUserInfo_OnClick(object sender, EventArgs e)
         {
-            if (int.TryParse(DdlUsers.SelectedValue, out int userId))
+            if (!int.TryParse(DdlUsers.SelectedValue, out int userId))
+                return;
+            var user = AllUsers.FirstOrDefault(u => u.Id == userId);
+            if (user == null)
+                return;
+            DisplayUser(user);
+        }
+
+        protected void DdlUserTypes_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<KeyValuePair<int, string>> usersList;
+            switch (DdlUserTypes.SelectedValue)
             {
-                var user = UserManager.GetUserById(userId);
-                var stringBuilder = new StringBuilder();
-                stringBuilder.Append("الاسم: ");
-                stringBuilder.Append(user.ArabicName);
-                stringBuilder.Append("<br />");
-                stringBuilder.Append("اسم المستخدم: ");
-                stringBuilder.Append(user.EnglishName);
-                stringBuilder.Append("<br />");
-                stringBuilder.Append("الرقم السري: ");
-                stringBuilder.Append(user.Password);
-                LblUserInfo.Text = stringBuilder.ToString();
-                LblUserInfo.Visible = true;
+                case "1":
+                    usersList = AllUsers.Where(user => !user.IsAdmin && user.IsMale == true && user.Year == 1)
+                        .Select(user => new KeyValuePair<int, string>(user.Id, user.ArabicName))
+                        .OrderBy(keyValuePair => keyValuePair.Value).ToList();
+                    break;
+                case "2":
+                    usersList = AllUsers.Where(user => !user.IsAdmin && user.IsMale == false && user.Year == 1)
+                        .Select(user => new KeyValuePair<int, string>(user.Id, user.ArabicName))
+                        .OrderBy(keyValuePair => keyValuePair.Value).ToList();
+                    break;
+                case "3":
+                    usersList = AllUsers.Where(user => !user.IsAdmin && user.IsMale == true && user.Year == 2)
+                        .Select(user => new KeyValuePair<int, string>(user.Id, user.ArabicName))
+                        .OrderBy(keyValuePair => keyValuePair.Value).ToList();
+                    break;
+                case "4":
+                    usersList = AllUsers.Where(user => !user.IsAdmin && user.IsMale == false && user.Year == 2)
+                        .Select(user => new KeyValuePair<int, string>(user.Id, user.ArabicName))
+                        .OrderBy(keyValuePair => keyValuePair.Value).ToList();
+                    break;
+                case "5":
+                    usersList = AllUsers.Where(user => !user.IsAdmin && user.IsMale == true && user.Year == 3)
+                        .Select(user => new KeyValuePair<int, string>(user.Id, user.ArabicName))
+                        .OrderBy(keyValuePair => keyValuePair.Value).ToList();
+                    break;
+                case "6":
+                    usersList = AllUsers.Where(user => !user.IsAdmin && user.IsMale == false && user.Year == 3)
+                        .Select(user => new KeyValuePair<int, string>(user.Id, user.ArabicName))
+                        .OrderBy(keyValuePair => keyValuePair.Value).ToList();
+                    break;
+                default:
+                    usersList = AllUsers.Where(user => !user.IsAdmin)
+                        .Select(user => new KeyValuePair<int, string>(user.Id, user.ArabicName))
+                        .OrderBy(keyValuePair => keyValuePair.Value).ToList();
+                    break;
             }
+            DisplayUsersAtDropDown(usersList);
         }
 
         #endregion
@@ -65,21 +114,34 @@ namespace Top10
 
             #endregion
 
-            #region Fill Users' names to the drop down
+            if (!IsPostBack)
+            {
+                #region Fill Users' names to the drop down
 
-            DdlUsers.DataSource = UserManager.GetAllUserNames();
+                DisplayUsersAtDropDown(AllUsers.Where(user => !user.IsAdmin)
+                    .Select(user => new KeyValuePair<int, string>(user.Id, user.ArabicName))
+                    .OrderBy(keyValuePair => keyValuePair.Value).ToList());
+
+                #endregion
+            }
+        }
+
+        private void DisplayUsersAtDropDown(List<KeyValuePair<int, string>> usersList)
+        {
+            DdlUsers.DataSource = usersList;
             DdlUsers.DataTextField = "Value";
-            DdlUsers.DataValueField= "Key";
+            DdlUsers.DataValueField = "Key";
             DdlUsers.DataBind();
-            
-            #endregion
+        }
+
+        private void DisplayUser(User user)
+        {
+            TblUserInfo.Visible = true;
+            LtrUserArabicName.Text = user.ArabicName;
+            LtrUserEnglishName.Text = user.EnglishName;
+            LtrUserPassword.Text = user.Password;
         }
 
         #endregion
-
-        protected void DdlUserTypes_OnSelectedIndexChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

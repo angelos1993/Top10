@@ -35,7 +35,7 @@
                                                 هل انت متأكد من انك تريد إنشاء رقم سري جديد لهذا المخدوم؟
                                             </div>
                                             <div class="modal-footer">
-                                                <asp:Button runat="server" ID="BtnGeneratePasswordForUser" CssClass="btn btn-primary col-md-2 ml-1" OnClick="BtnGeneratePasswordForUser_OnClick" Text="نعم" />
+                                                <asp:Button runat="server" ID="BtnGeneratePasswordForUser" CssClass="btn btn-primary col-md-2 ml-1" OnClick="BtnGeneratePasswordForUser_OnClick" Text="نعم" OnClientClick="$('#passwordModal').modal('hide')" />
                                                 <button type="button" class="btn btn-danger" data-dismiss="modal">لا</button>
                                             </div>
                                         </div>

@@ -44,9 +44,14 @@ namespace Top10.BLL
                 : GetAllUsers().Where(user => user.Password == null || user.Password == string.Empty).ToList();
             foreach (var user in allUsers)
             {
-                user.Password = GetRandomPassword();
+                user.Password = GetUniqueRandomPassword();
                 UnitOfWork.UserRepository.Update(user);
             }
+        }
+
+        public bool IsPasswordExists(string password)
+        {
+            return UnitOfWork.UserRepository.Get(user => user.Password == password).Any();
         }
 
         #endregion

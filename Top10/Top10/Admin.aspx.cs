@@ -37,7 +37,7 @@ namespace Top10
             var user = AllUsers.FirstOrDefault(u => u.Id == userId);
             if (user == null)
                 return;
-            user.Password = GetRandomPassword();
+            user.Password = GetUniqueRandomPassword();
             UserManager.UpdateUser(user);
             DivPasswordCreatedSuccessfully.Visible = true;
             DisplayUser(user);
@@ -124,6 +124,7 @@ namespace Top10
 
                 #endregion
             }
+            DivPasswordCreatedSuccessfully.Visible = false;
         }
 
         private void DisplayUsersAtDropDown(List<KeyValuePair<int, string>> usersList)

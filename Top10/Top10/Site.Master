@@ -15,15 +15,34 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <div class="container">
+    <form runat="server" class="container-fluid">
         <header class="row m-2">
             <img class="col" src="client/images/header.png" alt="image not found!" />
         </header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-info rounded mb-1">
+            <a class="navbar-brand" href="#" onclick="return false;">صفحة جديدة (صيف 2018)</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarItems">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">جروب الخدمة ع الفيسبوك</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">قناة الخدمة ع اليوتيوب</a>
+                    </li>
+                    <li class="nav-item">
+                        <asp:LinkButton runat="server" ID="LnkBtnLogout" CssClass="nav-link" OnClick="LnkBtnLogout_OnClick">تسجيل الخروج</asp:LinkButton>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <div class="row">
-            <form id="form2" runat="server" class="container">
+            <div class="container">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
-            </form>
+            </div>
         </div>
         <footer class="footer m-2">
             <div class="container">
@@ -31,6 +50,6 @@
                 <small class="col d-flex justify-content-center">صلوا لاجل الخدمة</small>
             </div>
         </footer>
-    </div>
+    </form>
 </body>
 </html>

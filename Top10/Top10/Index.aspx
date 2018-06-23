@@ -22,7 +22,7 @@
                         <asp:TextBox runat="server" ID="TxtPassword" TextMode="Password" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <asp:Button runat="server" ID="BtnLogin" Text="تسجيل الدخول" OnClick="BtnLogin_OnClick" CssClass="form-control btn btn-primary" OnClientClick="return validateLogin();" />
+                        <asp:Button runat="server" ID="BtnLogin" Text="تسجيل الدخول" OnClick="BtnLogin_OnClick" CssClass="form-control btn btn-info" OnClientClick="return validateLogin();" />
                     </div>
                 </div>
             </div>

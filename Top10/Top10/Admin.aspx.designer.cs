@@ -13,13 +13,13 @@ namespace Top10 {
     public partial class Admin {
         
         /// <summary>
-        /// ScriptManager control.
+        /// ScriptManagerProxy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager;
+        protected global::System.Web.UI.ScriptManagerProxy ScriptManagerProxy;
         
         /// <summary>
         /// DdlUserTypes control.

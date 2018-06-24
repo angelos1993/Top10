@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ScriptManager runat="server" ID="ScriptManager" />
+    <asp:ScriptManagerProxy runat="server" ID="ScriptManagerProxy" />
     <div id="accordion">
         <div class="card">
             <a class="card-header" data-toggle="collapse" href="#collapseOne">

@@ -40,6 +40,7 @@
         </nav>
         <div class="row">
             <div class="container">
+                <asp:ScriptManager runat="server" ID="ScriptManager" />
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
@@ -50,6 +51,32 @@
                 <small class="col d-flex justify-content-center">صلوا لاجل الخدمة</small>
             </div>
         </footer>
+        <div runat="server" ID="DivFeedback">
+            <asp:UpdatePanel runat="server">
+                <ContentTemplate>
+                    <div class="center">
+                        <a href="#" data-toggle="modal" data-target="#feedbackModal">قول رأيك</a>
+                    </div>
+                    <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">ابعتلنا</h5>
+                                </div>
+                                <div class="modal-body row">
+                                    <label class="col-12">لو عايز تقول رأيك أوعندك مشكلة ف الموقع او مشكلة عامة ف الخدمة او لو عندك اقتراحات او شكاوي قولنا ...</label>
+                                    <asp:TextBox runat="server" ID="TxtFeedback" CssClass="col-12" Height="100" TextMode="MultiLine" />
+                                </div>
+                                <div class="modal-footer">
+                                    <asp:Button runat="server" ID="BtnSendFeedbach" CssClass="btn btn-primary col-md-2 ml-1" OnClick="BtnSendFeedbach_OnClick" Text="إرسال" OnClientClick="$('#feedbackModal').modal('hide')" />
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
     </form>
 </body>
 </html>

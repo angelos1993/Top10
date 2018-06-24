@@ -170,6 +170,9 @@
     <Compile Include="DAL\Model\UserGrade.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\Model\Users_.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAL\Model\UserTime.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

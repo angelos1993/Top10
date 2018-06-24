@@ -40,6 +40,7 @@
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="QuestionId" Type="int" Nullable="false" />
     <Property Name="Answer" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Grade" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -48,7 +49,24 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ArabicName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="EnglishName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="IsAdmin" Type="bit" Nullable="false" />
+    <Property Name="IsMale" Type="bit" />
+    <Property Name="Year" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Top10.dbo.Users_' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Users_">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="ArabicName" />
+      <PropertyRef Name="EnglishName" />
+      <PropertyRef Name="IsAdmin" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArabicName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EnglishName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" />
     <Property Name="IsAdmin" Type="bit" Nullable="false" />
     <Property Name="IsMale" Type="bit" />
     <Property Name="Year" Type="int" />
@@ -105,6 +123,17 @@
     <EntitySet Name="UserGrades" EntityType="Self.UserGrades" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserTimes" EntityType="Self.UserTimes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users_" EntityType="Self.Users_" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Users_].[Id] AS [Id], 
+    [Users_].[ArabicName] AS [ArabicName], 
+    [Users_].[EnglishName] AS [EnglishName], 
+    [Users_].[Password] AS [Password], 
+    [Users_].[IsAdmin] AS [IsAdmin], 
+    [Users_].[IsMale] AS [IsMale], 
+    [Users_].[Year] AS [Year]
+    FROM [dbo].[Users_] AS [Users_]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_StudentGrades_Questions" Association="Self.FK_StudentGrades_Questions">
       <End Role="Questions" EntitySet="Questions" />
       <End Role="UserGrades" EntitySet="UserGrades" />

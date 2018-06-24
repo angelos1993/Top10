@@ -45,6 +45,7 @@
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="QuestionId" Type="int" Nullable="false" />
           <Property Name="Answer" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Grade" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -53,7 +54,24 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ArabicName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="EnglishName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="IsAdmin" Type="bit" Nullable="false" />
+          <Property Name="IsMale" Type="bit" />
+          <Property Name="Year" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Top10.dbo.Users_' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Users_">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="ArabicName" />
+            <PropertyRef Name="EnglishName" />
+            <PropertyRef Name="IsAdmin" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArabicName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EnglishName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" />
           <Property Name="IsAdmin" Type="bit" Nullable="false" />
           <Property Name="IsMale" Type="bit" />
           <Property Name="Year" Type="int" />
@@ -110,6 +128,17 @@
           <EntitySet Name="UserGrades" EntityType="Self.UserGrades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserTimes" EntityType="Self.UserTimes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users_" EntityType="Self.Users_" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Users_].[Id] AS [Id], 
+    [Users_].[ArabicName] AS [ArabicName], 
+    [Users_].[EnglishName] AS [EnglishName], 
+    [Users_].[Password] AS [Password], 
+    [Users_].[IsAdmin] AS [IsAdmin], 
+    [Users_].[IsMale] AS [IsMale], 
+    [Users_].[Year] AS [Year]
+    FROM [dbo].[Users_] AS [Users_]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_StudentGrades_Questions" Association="Self.FK_StudentGrades_Questions">
             <End Role="Questions" EntitySet="Questions" />
             <End Role="UserGrades" EntitySet="UserGrades" />
@@ -169,6 +198,7 @@
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="QuestionId" Type="Int32" Nullable="false" />
           <Property Name="Answer" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Grade" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Question" Relationship="Self.FK_StudentGrades_Questions" FromRole="UserGrades" ToRole="Questions" />
           <NavigationProperty Name="User" Relationship="Self.FK_StudentGrades_Students" FromRole="UserGrades" ToRole="Users" />
         </EntityType>
@@ -179,7 +209,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ArabicName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EnglishName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
           <Property Name="IsMale" Type="Boolean" />
           <Property Name="Year" Type="Int32" />
@@ -195,6 +225,21 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="SpentSeconds" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_StudentTimes_Students" FromRole="UserTimes" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users_">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="ArabicName" />
+            <PropertyRef Name="EnglishName" />
+            <PropertyRef Name="IsAdmin" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArabicName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EnglishName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="IsMale" Type="Boolean" />
+          <Property Name="Year" Type="Int32" />
         </EntityType>
         <Association Name="FK_StudentGrades_Questions">
           <End Role="Questions" Type="Self.Question" Multiplicity="1" />
@@ -239,6 +284,7 @@
           <EntitySet Name="UserGrades" EntityType="Self.UserGrade" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="UserTimes" EntityType="Self.UserTime" />
+          <EntitySet Name="Users_" EntityType="Self.Users_" />
           <AssociationSet Name="FK_StudentGrades_Questions" Association="Self.FK_StudentGrades_Questions">
             <End Role="Questions" EntitySet="Questions" />
             <End Role="UserGrades" EntitySet="UserGrades" />
@@ -300,6 +346,7 @@
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
                 <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -323,6 +370,19 @@
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="SpentSeconds" ColumnName="SpentSeconds" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users_">
+            <EntityTypeMapping TypeName="Top10Model.Users_">
+              <MappingFragment StoreEntitySet="Users_">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ArabicName" ColumnName="ArabicName" />
+                <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="IsMale" ColumnName="IsMale" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

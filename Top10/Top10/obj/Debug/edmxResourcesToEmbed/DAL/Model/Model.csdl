@@ -41,6 +41,7 @@
     <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="QuestionId" Type="Int32" Nullable="false" />
     <Property Name="Answer" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Grade" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Question" Relationship="Self.FK_StudentGrades_Questions" FromRole="UserGrades" ToRole="Questions" />
     <NavigationProperty Name="User" Relationship="Self.FK_StudentGrades_Students" FromRole="UserGrades" ToRole="Users" />
   </EntityType>
@@ -51,7 +52,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ArabicName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="EnglishName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
     <Property Name="IsMale" Type="Boolean" />
     <Property Name="Year" Type="Int32" />
@@ -67,6 +68,21 @@
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="SpentSeconds" Type="Int32" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_StudentTimes_Students" FromRole="UserTimes" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users_">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="ArabicName" />
+      <PropertyRef Name="EnglishName" />
+      <PropertyRef Name="IsAdmin" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArabicName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EnglishName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+    <Property Name="IsMale" Type="Boolean" />
+    <Property Name="Year" Type="Int32" />
   </EntityType>
   <Association Name="FK_StudentGrades_Questions">
     <End Role="Questions" Type="Self.Question" Multiplicity="1" />
@@ -111,6 +127,7 @@
     <EntitySet Name="UserGrades" EntityType="Self.UserGrade" />
     <EntitySet Name="Users" EntityType="Self.User" />
     <EntitySet Name="UserTimes" EntityType="Self.UserTime" />
+    <EntitySet Name="Users_" EntityType="Self.Users_" />
     <AssociationSet Name="FK_StudentGrades_Questions" Association="Self.FK_StudentGrades_Questions">
       <End Role="Questions" EntitySet="Questions" />
       <End Role="UserGrades" EntitySet="UserGrades" />

@@ -31,5 +31,6 @@ namespace Top10.DAL.Model
         public virtual DbSet<UserGrade> UserGrades { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserTime> UserTimes { get; set; }
+        public virtual DbSet<Users_> Users_ { get; set; }
     }
 }

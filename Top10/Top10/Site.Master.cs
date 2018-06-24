@@ -33,6 +33,8 @@ namespace Top10
 
         protected void BtnSendFeedbach_OnClick(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(TxtFeedback.Text))
+                return;
             FeedbackManager.AddFeedback(new Feedback
             {
                 Message = TxtFeedback.Text,

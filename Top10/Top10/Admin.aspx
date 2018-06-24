@@ -48,17 +48,17 @@
                             <div class="row justify-content-center">
                                 <table class="col-md-8 col-12 table table-hover table-bordered" runat="server" id="TblUserInfo" visible="False">
                                     <tr>
-                                        <td>الاسم</td>
+                                        <td><strong>الاسم</strong></td>
                                         <td>
                                             <asp:Literal runat="server" ID="LtrUserArabicName" /></td>
                                     </tr>
                                     <tr>
-                                        <td>اسم المستخدم</td>
+                                        <td><strong>اسم المستخدم</strong></td>
                                         <td>
                                             <asp:Literal runat="server" ID="LtrUserEnglishName" /></td>
                                     </tr>
                                     <tr>
-                                        <td>الرقم السري</td>
+                                        <td><strong>الرقم السري</strong></td>
                                         <td>
                                             <asp:Literal runat="server" ID="LtrUserPassword" /></td>
                                     </tr>
@@ -76,6 +76,36 @@
             <div id="collapseTwo" class="collapse" data-parent="#accordion">
                 <div class="card-body">
                     Lorem ipsum..
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <a class="card-header" data-toggle="collapse" href="#collapseThree">
+                آراء ومشاكل واقتراحات المخدومين
+            </a>
+            <div id="collapseThree" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    <div class="alert alert-info text-center" runat="server" ID="DivNoFeedbacks">لا توجد بيانات للعرض</div>
+                    <div runat="server" id="DivFeedbacks">
+                        <table class="table table-hover">
+                            <thead class="bg-light">
+                                <tr class="row">
+                                    <td class="text-center col-3"><strong>اسم المخدوم</strong></td>
+                                    <td class="text-center col-9"><strong>الرسالة</strong></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <asp:Repeater runat="server" ID="RepFeedbacks" ItemType="Top10.DAL.VMs.FeedbackVm">
+                                    <ItemTemplate>
+                                        <tr class="row">
+                                            <td class="text-center col-3"><%# Item.Username %></td>
+                                            <td class="text-center col-9"><%# Item.Message %></td>
+                                        </tr>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

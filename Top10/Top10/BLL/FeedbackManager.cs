@@ -1,4 +1,6 @@
-﻿using Top10.BLL.Infrastructure;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Top10.BLL.Infrastructure;
 using Top10.DAL.Model;
 
 namespace Top10.BLL
@@ -14,6 +16,11 @@ namespace Top10.BLL
         public void AddFeedback(Feedback feedback)
         {
             UnitOfWork.FeedbackRepository.Add(feedback);
+        }
+
+        public List<Feedback> GetAllFeedbacks()
+        {
+            return UnitOfWork.FeedbackRepository.GetAll().ToList();
         }
 
         #endregion

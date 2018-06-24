@@ -35,6 +35,12 @@ namespace Top10.BLL
             UnitOfWork.UserRepository.Update(user);
         }
 
+        public string GetUsernameById(int userId)
+        {
+            return UnitOfWork.UserRepository.Get(user => user.Id == userId).Select(user => user.ArabicName)
+                .FirstOrDefault();
+        }
+
         #region Generate Passwords for all users
 
         public void GeneratePasswordsForAllUsers(bool isAll = false)

@@ -57,4 +57,3 @@ G:\Angelos\Top10\Repo\Top10\Top10\bin\EntityFramework.SqlServer.xml
 G:\Angelos\Top10\Repo\Top10\Top10\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 G:\Angelos\Top10\Repo\Top10\Top10\obj\Debug\Top10.dll
 G:\Angelos\Top10\Repo\Top10\Top10\obj\Debug\Top10.pdb
-G:\Angelos\Top10\Repo\Top10\Top10\obj\Debug\Top10.csprojResolveAssemblyReference.cache

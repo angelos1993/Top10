@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.UI;
 using Top10.BLL;
 using Top10.DAL.Model;
+using Top10.DAL.VMs;
 using Top10.SessionManagement;
 using Top10.Utility;
 using static Top10.Utility.PasswordUtility;
@@ -20,6 +21,8 @@ namespace Top10
         private SessionManager SessionManager => _sessionManager ?? (_sessionManager = new SessionManager());
         private List<User> _allUsers;
         private List<User> AllUsers => _allUsers ?? (_allUsers = UserManager.GetAllUsers().ToList());
+        private FeedbackManager _feedbackManager;
+        private FeedbackManager FeedbackManager => _feedbackManager ?? (_feedbackManager = new FeedbackManager());
 
         #endregion
 
@@ -121,6 +124,32 @@ namespace Top10
                 DisplayUsersAtDropDown(AllUsers.Where(user => !user.IsAdmin)
                     .Select(user => new KeyValuePair<int, string>(user.Id, user.ArabicName))
                     .OrderBy(keyValuePair => keyValuePair.Value).ToList());
+
+                #endregion
+
+                #region Top Users
+
+                #endregion
+
+                #region Users' feedbacks
+
+                var allFeedbacks = FeedbackManager.GetAllFeedbacks();
+                if (allFeedbacks.Any())
+                {
+                    DivFeedbacks.Visible = true;
+                    DivNoFeedbacks.Visible = false;
+                    RepFeedbacks.DataSource = allFeedbacks.Select(feedback => new FeedbackVm
+                    {
+                        Username = UserManager.GetUsernameById(feedback.UserId),
+                        Message = feedback.Message
+                    });
+                    RepFeedbacks.DataBind();
+                }
+                else
+                {
+                    DivFeedbacks.Visible = false;
+                    DivNoFeedbacks.Visible = true;
+                }
 
                 #endregion
             }

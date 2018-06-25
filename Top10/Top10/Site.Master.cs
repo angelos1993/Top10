@@ -48,8 +48,9 @@ namespace Top10
 
         private void PageLoad()
         {
-            LnkBtnLogout.Visible = SessionManager.CurrentSessionObject != null;
-            DivFeedback.Visible = SessionManager.CurrentSessionObject != null;
+            var currentSessionObject = SessionManager.CurrentSessionObject;
+            LnkBtnLogout.Visible = currentSessionObject != null;
+            DivFeedback.Visible = currentSessionObject != null && !currentSessionObject.IsAdmin;
         }
 
         #endregion

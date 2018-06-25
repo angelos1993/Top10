@@ -3,6 +3,7 @@ using System.Web.UI;
 using Top10.BLL;
 using Top10.SessionManagement;
 using Top10.Utility;
+using static Top10.Utility.Constants;
 
 namespace Top10
 {
@@ -40,35 +41,40 @@ namespace Top10
             var currentSessionObject = SessionManager.CurrentSessionObject;
             if (currentSessionObject == null)
             {
-                Response.Redirect(Constants.Pages.Index);
+                Response.Redirect(Pages.Index);
                 return;
             }
 
             #endregion
 
             HideAllSections();
-            if (Now < Constants.StartDate)
+            if (Now < StartDate)
             {
                 DivBeforeStartDate.Visible = true;
-                LtrStartDate.Text = Constants.StartDate.ToLongDateString();
+                LtrStartDate.Text = StartDate.ToShortDateString();
+                SetImagesVisibility(true);
             }
-            else if (Now > Constants.EndDate)
+            else if (Now > EndDate)
             {
                 DivAfterEndDate.Visible = true;
-                LtrEndDate.Text = Constants.EndDate.ToLongDateString();
+                LtrEndDate.Text = EndDate.ToShortDateString();
+                SetImagesVisibility(true);
             }
             else
             {
                 if (UserGradeManager.IsUserHasAnswersToday(currentSessionObject.UserId))
                 {
                     DivUserHadAnsweredToday.Visible = true;
+                    SetImagesVisibility(true);
                 }
                 else if (UserTimeManager.IsUserTimeoutToday(currentSessionObject.UserId))
                 {
                     DivUserTimeoutToday.Visible = true;
+                    SetImagesVisibility(true);
                 }
                 else
                 {
+                    SetImagesVisibility(false);
                     //new quiz
                     var questionsIdsAnsweredByUser =
                         UserGradeManager.GetQuestionsIdsAnsweredByUser(currentSessionObject.UserId);
@@ -90,6 +96,12 @@ namespace Top10
             DivUserHadAnsweredToday.Visible = false;
             DivUserTimeoutToday.Visible = false;
             DivNewQuiz.Visible = false;
+        }
+
+        private void SetImagesVisibility(bool isVisible)
+        {
+            ImgTop.Visible = isVisible;
+            ImgBottom.Visible = isVisible;
         }
 
         #endregion

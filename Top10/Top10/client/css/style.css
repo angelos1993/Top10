@@ -74,3 +74,7 @@ body {
 .center a:hover { background: #CCC; }
 
 /*#endregion */
+
+.img-seperator {
+    height: 100px;
+}

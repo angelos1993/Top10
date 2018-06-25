@@ -2,19 +2,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div runat="server" ID="DivBeforeStartDate">
-        the game will start on: <asp:Literal runat="server" ID="LtrStartDate" />
+    <asp:Image runat="server" ID="ImgTop" CssClass="col img-seperator" ImageUrl="client/images/top.png" />
+    <div runat="server" ID="DivBeforeStartDate" class="alert alert-info text-center">
+        ستبدأ اللعبة يوم <asp:Literal runat="server" ID="LtrStartDate" /> ، انتظرونا
     </div>
-    <div runat="server" ID="DivAfterEndDate">
-        the game ended on: <asp:Literal runat="server" ID="LtrEndDate" />
+    <div runat="server" ID="DivAfterEndDate" class="alert alert-info text-center">
+        لقد إنتهت اللعبة يوم <asp:Literal runat="server" ID="LtrEndDate" /> ، ترقبوا النتيجة
     </div>
-    <div runat="server" ID="DivUserHadAnsweredToday">
-        you have answered the today's questions
+    <div runat="server" ID="DivUserHadAnsweredToday" class="alert alert-info text-center">
+        لقد قمت بالإجابة عن الأسئلة المتاحة لك اليوم .. نلقاك غذاً مع أسئلة جديدة
     </div>
-    <div runat="server" ID="DivUserTimeoutToday">
-        the time ended for today, please tyr again tomorrow
+    <div runat="server" ID="DivUserTimeoutToday" class="alert alert-info text-center">
+        لقد إنتهي الوقت المتاح لك للإجابة لهذا اليوم .. نلقاك غذاً مع أسئلة جديدة
     </div>
     <div runat="server" ID="DivNewQuiz">
         DivNewQuiz
     </div>
+    <asp:Image runat="server" ID="ImgBottom" CssClass="col img-seperator" ImageUrl="client/images/bottom.png" />
 </asp:Content>

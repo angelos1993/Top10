@@ -5,7 +5,7 @@ namespace Top10.Utility
     public static class Constants
     {
         public static DateTime StartDate = new DateTime(2018, 7, 7, 0, 0, 0);
-        public static DateTime EndDate = new DateTime(2018, 7, 17, 0, 0, 0);
+        public static DateTime EndDate = new DateTime(2018, 7, 17, 23, 59, 59);
         public static int Timer = 90;
 
         #region Pages

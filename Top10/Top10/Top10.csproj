@@ -77,8 +77,10 @@
     <Content Include="Angelos.aspx" />
     <Content Include="client\css\bootstrap.min.css" />
     <Content Include="client\css\style.css" />
+    <Content Include="client\images\bottom.png" />
     <Content Include="client\images\header.png" />
     <Content Include="client\images\icon.ico" />
+    <Content Include="client\images\top.png" />
     <Content Include="client\js\bootstrap.min.js" />
     <Content Include="client\js\jquery.min.js" />
     <Content Include="client\js\script-index.js" />

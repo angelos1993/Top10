@@ -13,6 +13,15 @@ namespace Top10 {
     public partial class Quiz {
         
         /// <summary>
+        /// ImgTop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImgTop;
+        
+        /// <summary>
         /// DivBeforeStartDate control.
         /// </summary>
         /// <remarks>
@@ -74,5 +83,14 @@ namespace Top10 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivNewQuiz;
+        
+        /// <summary>
+        /// ImgBottom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImgBottom;
     }
 }

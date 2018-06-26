@@ -39,7 +39,7 @@ namespace Top10
             #region Security Check
 
             var currentSessionObject = SessionManager.CurrentSessionObject;
-            if (currentSessionObject == null)
+            if (currentSessionObject == null || currentSessionObject.IsAdmin)
             {
                 Response.Redirect(Pages.Index);
                 return;

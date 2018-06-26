@@ -103,31 +103,13 @@ namespace Top10 {
         protected global::System.Web.UI.WebControls.Literal LtrUserPassword;
         
         /// <summary>
-        /// DivNoTopUsers control.
+        /// UcTop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivNoTopUsers;
-        
-        /// <summary>
-        /// DivTopUsers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivTopUsers;
-        
-        /// <summary>
-        /// RepTopUsers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepTopUsers;
+        protected global::Top10.Top1 UcTop;
         
         /// <summary>
         /// DivNoFeedbacks control.

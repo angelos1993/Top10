@@ -50,7 +50,12 @@ namespace Top10
         {
             var currentSessionObject = SessionManager.CurrentSessionObject;
             LnkBtnLogout.Visible = currentSessionObject != null;
+            LnkBtnPlay.Visible = currentSessionObject != null && !currentSessionObject.IsAdmin;
+            LnkBtnTopUsers.Visible = currentSessionObject != null && !currentSessionObject.IsAdmin;
             DivFeedback.Visible = currentSessionObject != null && !currentSessionObject.IsAdmin;
+            LtrCurrentUserName.Text = currentSessionObject != null
+                ? $"أهلا بك يا: <small>{currentSessionObject.UserArabicName}</small>"
+                : @"صفحة جديدة(صيف 2018)";
         }
 
         #endregion

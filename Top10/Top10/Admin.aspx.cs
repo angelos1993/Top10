@@ -131,20 +131,8 @@ namespace Top10
 
                 #region Top Users
 
-                var allUserGrades = UserGradeManager.GeTopUserVms(true);
-                if (allUserGrades.Any())
-                {
-                    DivTopUsers.Visible = true;
-                    DivNoTopUsers.Visible = false;
-                    RepTopUsers.DataSource = allUserGrades;
-                    RepTopUsers.DataBind();
-                }
-                else
-                {
-                    DivTopUsers.Visible = false;
-                    DivNoTopUsers.Visible = true;
-                }
-
+                //Handeled at the user control
+                
                 #endregion
 
                 #region Users' feedbacks

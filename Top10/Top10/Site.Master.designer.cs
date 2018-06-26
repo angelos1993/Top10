@@ -22,6 +22,33 @@ namespace Top10 {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
+        /// LtrCurrentUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LtrCurrentUserName;
+        
+        /// <summary>
+        /// LnkBtnPlay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink LnkBtnPlay;
+        
+        /// <summary>
+        /// LnkBtnTopUsers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink LnkBtnTopUsers;
+        
+        /// <summary>
         /// LnkBtnLogout control.
         /// </summary>
         /// <remarks>

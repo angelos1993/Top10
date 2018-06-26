@@ -20,12 +20,18 @@
             <img class="col" src="client/images/header.png" alt="image not found!" />
         </header>
         <nav class="navbar navbar-expand-md navbar-dark bg-info rounded mb-1">
-            <a class="navbar-brand" href="#" onclick="return false;">صفحة جديدة (صيف 2018)</a>
+            <a class="navbar-brand" href="#" onclick="return false;"><asp:Literal runat="server" ID="LtrCurrentUserName" /> </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarItems">
                 <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <asp:HyperLink runat="server" ID="LnkBtnPlay" CssClass="nav-link" NavigateUrl="Quiz.aspx" Text="إلعب" />
+                    </li>
+                    <li class="nav-item">
+                        <asp:HyperLink runat="server" ID="LnkBtnTopUsers" CssClass="nav-link" NavigateUrl="Top.aspx" Text="أعلي 10 درجات" />
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">جروب الخدمة ع الفيسبوك</a>
                     </li>

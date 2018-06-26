@@ -118,6 +118,8 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Index.aspx" />
+    <Content Include="Top.ascx" />
+    <Content Include="Top.aspx" />
     <Content Include="TopRated.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -220,6 +222,20 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Top.ascx.cs">
+      <DependentUpon>Top.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Top.ascx.designer.cs">
+      <DependentUpon>Top.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Top.aspx.cs">
+      <DependentUpon>Top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Top.aspx.designer.cs">
+      <DependentUpon>Top.aspx</DependentUpon>
     </Compile>
     <Compile Include="TopRated.aspx.cs">
       <DependentUpon>TopRated.aspx</DependentUpon>

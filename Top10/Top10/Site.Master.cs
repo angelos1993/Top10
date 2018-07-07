@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.UI;
 using Top10.BLL;
 using Top10.DAL.Model;
@@ -27,6 +28,11 @@ namespace Top10
 
         protected void LnkBtnLogout_OnClick(object sender, EventArgs e)
         {
+            var currentSessionObject = SessionManager.CurrentSessionObject;
+            var loggedInUsers = Application["LoggedInUsers"] as List<int>;
+            if (currentSessionObject != null && loggedInUsers != null &&
+                loggedInUsers.Contains(currentSessionObject.UserId))
+                loggedInUsers.Remove(currentSessionObject.UserId);
             SessionManager.CurrentSessionObject = null;
             Response.Redirect(Constants.Pages.Index);
         }

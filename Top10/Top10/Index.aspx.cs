@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.UI;
 using Top10.BLL;
+using Top10.DAL.Model;
 using Top10.SessionManagement;
 using Top10.Utility;
 
@@ -54,8 +56,25 @@ namespace Top10
             var user = UserManager.Login(TxtUsername.Text, TxtPassword.Text);
             if (user != null)
             {
-                SessionManager.CurrentSessionObject = new SessionObject(user);
-                Response.Redirect(GetUrlToRedirect(SessionManager.CurrentSessionObject));
+                if (user.IsAdmin)
+                    SetSessionAndRedirect(user);
+                else
+                {
+                    var loggedInUsers = Application["LoggedInUsers"] as List<int>;
+                    if (loggedInUsers != null && loggedInUsers.Contains(user.Id))
+                    {
+                        DivAlreadyLoggedIn.Visible = true;
+                        DivLogIn.Visible = false;
+                    }
+                    else
+                    {
+                        if (loggedInUsers == null)
+                            loggedInUsers = new List<int>();
+                        loggedInUsers.Add(user.Id);
+                        Application["LoggedInUsers"] = loggedInUsers;
+                        SetSessionAndRedirect(user);
+                    }
+                }
             }
             else
             {
@@ -63,6 +82,12 @@ namespace Top10
                 LblErrorMsg.Visible = true;
                 TxtPassword.Text = string.Empty;
             }
+        }
+
+        private void SetSessionAndRedirect(User user)
+        {
+            SessionManager.CurrentSessionObject = new SessionObject(user);
+            Response.Redirect(GetUrlToRedirect(SessionManager.CurrentSessionObject));
         }
 
         private string GetUrlToRedirect(SessionObject currentSessionObject)

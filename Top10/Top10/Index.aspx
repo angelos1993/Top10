@@ -3,7 +3,7 @@
     <script src="client/js/script-index.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row justify-content-center">
+    <div runat="server" ID="DivLogIn" class="row justify-content-center">
         <div class="col-md-6 col-12">
             <div class="card row">
                 <h4 class="card-header text-center">تسجيل الدخول</h4>
@@ -32,5 +32,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div runat="server" ID="DivAlreadyLoggedIn" Visible="False" class="alert alert-danger text-center">
+        <h1 class="text-center">لقد قمت بتسجيل الدخول من قبل</h1>
     </div>
 </asp:Content>

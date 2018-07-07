@@ -5,6 +5,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Image runat="server" ID="ImgTop" CssClass="col img-seperator" ImageUrl="client/images/top.png" />
+    <div class="alert alert-warning text-center">
+        <h3 class="text-center">ملحوظة: اليوم يبدأ إعتباراً من الساعة التاسعة صباحاً حتي التاسعة صباح اليوم التالي</h3>
+    </div>
     <div runat="server" ID="DivBeforeStartDate" class="alert alert-info text-center">
         <h1 class="text-center">ستبدأ اللعبة يوم <asp:Literal runat="server" ID="LtrStartDate" /> ، انتظرونا</h1>
     </div>

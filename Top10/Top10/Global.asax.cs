@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web;
 
 namespace Top10
@@ -7,6 +8,7 @@ namespace Top10
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+            Application["LoggedInUsers"] = new List<int>();
         }
     }
 }

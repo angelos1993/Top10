@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI;
 using Top10.BLL;
 using Top10.DAL.Model;
@@ -60,8 +61,9 @@ namespace Top10
                     SetSessionAndRedirect(user);
                 else
                 {
-                    var loggedInUsers = Application["LoggedInUsers"] as List<int>;
-                    if (loggedInUsers != null && loggedInUsers.Contains(user.Id))
+                    var loggedInUsers = Application["LoggedInUsers"] as List<KeyValuePair<int, DateTime>>;
+                    if (loggedInUsers != null &&
+                        loggedInUsers.Any(kvp => kvp.Key == user.Id && (DateTime.Now - kvp.Value).TotalMinutes < 10))
                     {
                         DivAlreadyLoggedIn.Visible = true;
                         DivLogIn.Visible = false;
@@ -69,8 +71,15 @@ namespace Top10
                     else
                     {
                         if (loggedInUsers == null)
-                            loggedInUsers = new List<int>();
-                        loggedInUsers.Add(user.Id);
+                            loggedInUsers = new List<KeyValuePair<int, DateTime>>();
+                        if (loggedInUsers.Any(kvp => kvp.Key == user.Id &&
+                                                     (DateTime.Now - kvp.Value).TotalMinutes < 10))
+                        {
+                            var loggedInUser = loggedInUsers.FirstOrDefault(kvp => kvp.Key == user.Id &&
+                                                                        (DateTime.Now - kvp.Value).TotalMinutes < 10);
+                            loggedInUsers.Remove(loggedInUser);
+                        }
+                        loggedInUsers.Add(new KeyValuePair<int, DateTime>(user.Id, DateTime.Now));
                         Application["LoggedInUsers"] = loggedInUsers;
                         SetSessionAndRedirect(user);
                     }

@@ -8,7 +8,7 @@ namespace Top10
     {
         protected void Application_Start(object sender, EventArgs e)
         {
-            Application["LoggedInUsers"] = new List<int>();
+            Application["LoggedInUsers"] = new List<KeyValuePair<int, DateTime>>();
         }
     }
 }

@@ -9,7 +9,8 @@
 </head>
 <body class="container">
     <form id="form1" runat="server" class="row justify-content-center">
-        <img src="client/images/Congrats.jpg" class="col" height="400px" />
+        <asp:Image runat="server" ID="ImgCongrats" ImageUrl="client/images/Congrats.jpg" CssClass="col" height="400px" />
+        <asp:Image runat="server" ID="ImgSemiCongrats" ImageUrl="client/images/SemiCongrats.jpg" CssClass="col" height="400px" />
         <div class="alert alert-success text-center">
             <h1 class="text-center">
                 <asp:Literal runat="server" ID="LtrTxt" /></h1>

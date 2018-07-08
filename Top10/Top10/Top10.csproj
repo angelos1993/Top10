@@ -82,6 +82,7 @@
     <Content Include="client\images\Congrats.jpg" />
     <Content Include="client\images\header.png" />
     <Content Include="client\images\icon.ico" />
+    <Content Include="client\images\SemiCongrats.jpg" />
     <Content Include="client\images\top.png" />
     <Content Include="client\js\bootstrap.min.js" />
     <Content Include="client\js\jquery.min.js" />

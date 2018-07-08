@@ -31,6 +31,24 @@ namespace Top10 {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// ImgCongrats control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImgCongrats;
+        
+        /// <summary>
+        /// ImgSemiCongrats control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImgSemiCongrats;
+        
+        /// <summary>
         /// LtrTxt control.
         /// </summary>
         /// <remarks>

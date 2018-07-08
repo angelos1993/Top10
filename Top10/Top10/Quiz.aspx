@@ -18,8 +18,9 @@
         <div class="alert alert-info text-center">
             <h1 class="text-center">لقد قمت بالإجابة عن الأسئلة المتاحة لك اليوم .. نلقاك غداً مع أسئلة جديدة</h1>
         </div>
-        <div runat="server" ID="DivCongratsImage" class="row justify-content-center">
-            <img class="col-10" src="client/images/Congrats.jpg" height="400px" />
+        <div class="row justify-content-center">
+            <asp:Image runat="server" ID="ImgCongrats" ImageUrl="client/images/Congrats.jpg" CssClass="col" height="400px" />
+            <asp:Image runat="server" ID="ImgSemiCongrats" ImageUrl="client/images/SemiCongrats.jpg" CssClass="col" height="400px" />
             <asp:HyperLink runat="server" ID="BtnShare" Target="_blank" CssClass="col-md-5 col-12 m-1 btn btn-primary">
                 شارك نتيجتك مع صحابك ع الفيسبوك&nbsp;<i class="fab fa-facebook-square"></i>
             </asp:HyperLink>

@@ -82,7 +82,8 @@ namespace Top10
                         var todaysGrade = todaysQuestionsVms.Where(questionsVm => questionsVm.IsTrue)
                             .Sum(questionsVm => questionsVm.Mark);
                         DivTodaysGrade.InnerText = $"{todaysGrade} / 20";
-                        DivCongratsImage.Visible = todaysGrade == 20;
+                        ImgCongrats.Visible = todaysGrade == 20;
+                        ImgSemiCongrats.Visible = todaysGrade != 20;
 
                         #region Share Button
 
@@ -90,7 +91,7 @@ namespace Top10
                         var month = Now.Month < 10 ? $"0{Now.Month}" : $"{Now.Month}";
                         var date = $"{Now.Year}{month}{Now.Day}";
                         BtnShare.NavigateUrl =
-                            $"http://www.facebook.com/sharer/sharer.php?u=http://thanawy.somee.com/Congrats.aspx?q={userId}a{date}";
+                            $"http://www.facebook.com/sharer/sharer.php?u=http://thanawy.somee.com/Congrats.aspx?q={userId}a{date}b{todaysGrade}";
 
                         #endregion
 

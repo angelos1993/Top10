@@ -58,6 +58,6 @@
     <asp:HiddenField runat="server" ID="HfQuestion2Answer" />
     <asp:HiddenField runat="server" ID="HfQuestion3Answer" />
     <button type="button" class="timer-div btn btn-lg btn-success d-none">
-        الوقت المتبقي <span class="badge badge-light" id="spnTimer">90</span>
+        الوقت المتبقي <span class="badge badge-light" id="spnTimer"></span>
     </button>
 </asp:Content>

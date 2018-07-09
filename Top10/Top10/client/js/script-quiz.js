@@ -9,6 +9,7 @@ function startGame() {
             scrollTop: $("[id$=DivNewQuiz]").offset().top
         },
         1000);
+    $("#spnTimer").text($("[id$=HfTimer]").val());
     setTimer();
 }
 
@@ -21,14 +22,20 @@ function setTimer() {
     setInterval(() => {
             globalTimer = globalTimer - 1;
             $("#spnTimer").text(globalTimer);
-            if (globalTimer % 5 === 0) {
-                //TODO: AJAX call to update the user time for today
+            if (globalTimer !== 90 && globalTimer % 5 === 0) {
+                $.ajax({
+                    type: "POST",
+                    url: "Quiz.aspx/SetTime",
+                    data: JSON.stringify({ "timeLapsed": 90 - globalTimer }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json"
+                });
             }
             if (globalTimer <= 10 && $(".timer-div").hasClass("btn-success")) {
                 $(".timer-div").removeClass("btn-success").addClass("btn-danger");
             }
             if (globalTimer <= 0) {
-                //TODO: AJAX call to end the quiz
+                $("[id$=BtnSubmitAnswers]").click();
             }
         },
         1000);

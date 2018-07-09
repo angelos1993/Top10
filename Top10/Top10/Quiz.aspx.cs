@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.Services;
 using System.Web.UI;
 using Top10.BLL;
 using Top10.DAL.Model;
@@ -150,6 +151,33 @@ namespace Top10
             UserGradeManager.AddUserAnswers(todaysUserGrades);
             Response.Redirect(Request.RawUrl);
         }
+
+        #region AJAX Methods
+
+        [WebMethod]
+        public static void SetTime(int timeLapsed)
+        {
+            var userTimeManager = new UserTimeManager();
+            var currentSessionObject = new SessionManager().CurrentSessionObject;
+            var userTime = userTimeManager.GetUserTimeForTodayByUserId(currentSessionObject.UserId);
+            if (userTime != null)
+            {
+                userTime.SpentSeconds = timeLapsed;
+                userTimeManager.UpdateUserTime(userTime);
+            }
+            else
+            {
+                userTime = new UserTime
+                {
+                    UserId = currentSessionObject.UserId,
+                    Date = DateTime.Now,
+                    SpentSeconds = timeLapsed
+                };
+                userTimeManager.AddUserTime(userTime);
+            }
+        }
+
+        #endregion
 
         #endregion
     }

@@ -83,6 +83,7 @@
     <Content Include="client\images\top.png" />
     <Content Include="client\js\bootstrap.min.js" />
     <Content Include="client\js\jquery.min.js" />
+    <Content Include="client\js\script-quiz.js" />
     <Content Include="client\js\script-index.js" />
     <Content Include="client\js\script.js" />
     <Content Include="DAL\Model\Model.Context.tt">

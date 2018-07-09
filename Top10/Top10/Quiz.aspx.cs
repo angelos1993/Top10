@@ -30,6 +30,11 @@ namespace Top10
             PageLoad();
         }
 
+        protected void BtnSubmitAnswers_OnClick(object sender, EventArgs e)
+        {
+            SubmitAnswers();
+        }
+
         #endregion
 
         #region Methods
@@ -62,12 +67,13 @@ namespace Top10
             }
             else
             {
+                var userTodaysTime = UserTimeManager.GetUserTodaysTime(currentSessionObject.UserId);
                 if (UserGradeManager.IsUserHasAnswersToday(currentSessionObject.UserId))
                 {
                     DivUserHadAnsweredToday.Visible = true;
                     SetImagesVisibility(true);
                 }
-                else if (UserTimeManager.IsUserTimeoutToday(currentSessionObject.UserId))
+                else if (userTodaysTime >= Constants.Timer)
                 {
                     DivUserTimeoutToday.Visible = true;
                     SetImagesVisibility(true);
@@ -80,10 +86,10 @@ namespace Top10
                         UserGradeManager.GetQuestionsIdsAnsweredByUser(currentSessionObject.UserId);
                     var todaysQuestions =
                         QuestionManager.GetQuestionsForUser(currentSessionObject.UserId, questionsIdsAnsweredByUser);
-                    var time = UserTimeManager.GetUserTodaysTime(currentSessionObject.UserId);
-                    if (time == 0)
-                        time = Constants.Timer;
-                    //TODO: display the three questions and set the timer
+                    RepQuestions.DataSource = todaysQuestions;
+                    RepQuestions.DataBind();
+                    userTodaysTime = Constants.Timer - userTodaysTime;
+                    HfTimer.Value = userTodaysTime.ToString();
                     DivNewQuiz.Visible = true;
                 }
             }
@@ -102,6 +108,11 @@ namespace Top10
         {
             ImgTop.Visible = isVisible;
             ImgBottom.Visible = isVisible;
+        }
+
+        private void SubmitAnswers()
+        {
+            
         }
 
         #endregion

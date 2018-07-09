@@ -21,12 +21,6 @@ namespace Top10.BLL
                 .Select(userTime => userTime.SpentSeconds).FirstOrDefault();
         }
 
-        public bool IsUserTimeoutToday(int userId)
-        {
-            var time = GetUserTodaysTime(userId);
-            return time >= Constants.Timer;
-        }
-
         #endregion
     }
 }

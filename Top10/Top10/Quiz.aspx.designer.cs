@@ -85,6 +85,24 @@ namespace Top10 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivNewQuiz;
         
         /// <summary>
+        /// RepQuestions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepQuestions;
+        
+        /// <summary>
+        /// BtnSubmitAnswers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnSubmitAnswers;
+        
+        /// <summary>
         /// ImgBottom control.
         /// </summary>
         /// <remarks>
@@ -92,5 +110,41 @@ namespace Top10 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image ImgBottom;
+        
+        /// <summary>
+        /// HfTimer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HfTimer;
+        
+        /// <summary>
+        /// HfQuestion1Answer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HfQuestion1Answer;
+        
+        /// <summary>
+        /// HfQuestion2Answer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HfQuestion2Answer;
+        
+        /// <summary>
+        /// HfQuestion3Answer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HfQuestion3Answer;
     }
 }

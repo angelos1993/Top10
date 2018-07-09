@@ -38,7 +38,7 @@ body {
 
 /*#region feedback */
 
-.center {
+.feedback-div {
     position: fixed;
     top: 80%;
     left: 0;
@@ -49,7 +49,7 @@ body {
     margin-top: -15px;
 }
 
-.center a {
+.feedback-div a {
     -ms-transform: rotate(-90deg);
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
@@ -71,10 +71,17 @@ body {
     border-right: solid 1px #fff;
 }
 
-.center a:hover { background: #CCC; }
+.feedback-div a:hover { background: #CCC; }
 
 /*#endregion */
 
 .img-seperator {
     height: 100px;
+}
+
+.timer-div {
+    position: fixed;
+    top: 25%;
+    left: 0;
+    z-index: 9999;
 }

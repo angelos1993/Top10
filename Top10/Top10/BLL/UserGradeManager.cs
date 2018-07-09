@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity.SqlServer;
 using System.Linq;
 using Top10.BLL.Infrastructure;
+using Top10.DAL.Model;
 using Top10.DAL.VMs;
 
 namespace Top10.BLL
@@ -34,8 +35,13 @@ namespace Top10.BLL
                 {
                     Username = userGrade.Key,
                     TotalGrades = userGrade.Sum(ug => ug.Grade)
-                }).OrderByDescending(topUserVm => topUserVm.TotalGrades);
+                }).OrderByDescending(topUserVm => topUserVm.TotalGrades).ThenBy(topUserVm => topUserVm.Username);
             return isAdmin ? topUserVms.ToList() : topUserVms.Take(10).ToList();
+        }
+
+        public void AddUserAnswers(List<UserGrade> userGradesList)
+        {
+            userGradesList.ForEach(userGrade => UnitOfWork.UserGradeRepository.Add(userGrade));
         }
 
         #endregion

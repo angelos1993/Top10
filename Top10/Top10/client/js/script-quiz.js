@@ -1,8 +1,14 @@
-﻿function startGame() {
+﻿var globalTimer;
+
+function startGame() {
     $("#divStartGame").addClass("d-none");
     $("#hfCurrentQuestion").val(1);
     $("#divQuestion1").removeClass("d-none");
     $("#divButtons").removeClass("d-none");
+    $("html, body").animate({
+            scrollTop: $("[id$=DivNewQuiz]").offset().top
+        },
+        1000);
     setTimer();
 }
 
@@ -10,8 +16,22 @@ function setTimer() {
     var timerString = $("[id$=HfTimer]").val();
     if (timerString == null || timerString === "")
         timerString = "90";
-    var timer = parseInt(timerString);
-    //TODO: need to start the timer
+    globalTimer = parseInt(timerString);
+    $(".timer-div").removeClass("d-none");
+    setInterval(() => {
+            globalTimer = globalTimer - 1;
+            $("#spnTimer").text(globalTimer);
+            if (globalTimer % 5 === 0) {
+                //TODO: AJAX call to update the user time for today
+            }
+            if (globalTimer <= 10 && $(".timer-div").hasClass("btn-success")) {
+                $(".timer-div").removeClass("btn-success").addClass("btn-danger");
+            }
+            if (globalTimer <= 0) {
+                //TODO: AJAX call to end the quiz
+            }
+        },
+        1000);
 }
 
 function showNextOrPreviousQuestion(mode) {

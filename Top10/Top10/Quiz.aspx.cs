@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.UI;
 using Top10.BLL;
+using Top10.DAL.Model;
 using Top10.SessionManagement;
 using Top10.Utility;
 using static Top10.Utility.Constants;
@@ -52,45 +54,49 @@ namespace Top10
 
             #endregion
 
-            HideAllSections();
-            if (Now < StartDate)
+            if (!IsPostBack)
             {
-                DivBeforeStartDate.Visible = true;
-                LtrStartDate.Text = StartDate.ToShortDateString();
-                SetImagesVisibility(true);
-            }
-            else if (Now > EndDate)
-            {
-                DivAfterEndDate.Visible = true;
-                LtrEndDate.Text = EndDate.ToShortDateString();
-                SetImagesVisibility(true);
-            }
-            else
-            {
-                var userTodaysTime = UserTimeManager.GetUserTodaysTime(currentSessionObject.UserId);
-                if (UserGradeManager.IsUserHasAnswersToday(currentSessionObject.UserId))
+                HideAllSections();
+                if (Now < StartDate)
                 {
-                    DivUserHadAnsweredToday.Visible = true;
+                    DivBeforeStartDate.Visible = true;
+                    LtrStartDate.Text = StartDate.ToShortDateString();
                     SetImagesVisibility(true);
                 }
-                else if (userTodaysTime >= Constants.Timer)
+                else if (Now > EndDate)
                 {
-                    DivUserTimeoutToday.Visible = true;
+                    DivAfterEndDate.Visible = true;
+                    LtrEndDate.Text = EndDate.ToShortDateString();
                     SetImagesVisibility(true);
                 }
                 else
                 {
-                    SetImagesVisibility(false);
-                    //new quiz
-                    var questionsIdsAnsweredByUser =
-                        UserGradeManager.GetQuestionsIdsAnsweredByUser(currentSessionObject.UserId);
-                    var todaysQuestions =
-                        QuestionManager.GetQuestionsForUser(currentSessionObject.UserId, questionsIdsAnsweredByUser);
-                    RepQuestions.DataSource = todaysQuestions;
-                    RepQuestions.DataBind();
-                    userTodaysTime = Constants.Timer - userTodaysTime;
-                    HfTimer.Value = userTodaysTime.ToString();
-                    DivNewQuiz.Visible = true;
+                    var userTodaysTime = UserTimeManager.GetUserTodaysTime(currentSessionObject.UserId);
+                    if (UserGradeManager.IsUserHasAnswersToday(currentSessionObject.UserId))
+                    {
+                        DivUserHadAnsweredToday.Visible = true;
+                        SetImagesVisibility(true);
+                    }
+                    else if (userTodaysTime >= Constants.Timer)
+                    {
+                        DivUserTimeoutToday.Visible = true;
+                        SetImagesVisibility(true);
+                    }
+                    else
+                    {
+                        SetImagesVisibility(false);
+                        var questionsIdsAnsweredByUser =
+                            UserGradeManager.GetQuestionsIdsAnsweredByUser(currentSessionObject.UserId);
+                        var todaysQuestions =
+                            QuestionManager.GetQuestionsForUser(currentSessionObject.UserId,
+                                questionsIdsAnsweredByUser);
+                        currentSessionObject.QuestionsList = todaysQuestions;
+                        RepQuestions.DataSource = todaysQuestions;
+                        RepQuestions.DataBind();
+                        userTodaysTime = Constants.Timer - userTodaysTime;
+                        HfTimer.Value = userTodaysTime.ToString();
+                        DivNewQuiz.Visible = true;
+                    }
                 }
             }
         }
@@ -112,7 +118,37 @@ namespace Top10
 
         private void SubmitAnswers()
         {
-            
+            var currentSessionObject = SessionManager.CurrentSessionObject;
+            var todaysQuestions = currentSessionObject.QuestionsList;
+            var todaysUserGrades = new List<UserGrade>
+            {
+                new UserGrade
+                {
+                    Date = DateTime.Now,
+                    UserId = currentSessionObject.UserId,
+                    QuestionId = todaysQuestions[0].Id,
+                    Answer = HfQuestion1Answer.Value,
+                    Grade = HfQuestion1Answer.Value == todaysQuestions[0].CorrectChoice.Trim() ? todaysQuestions[0].Mark : 0
+                },
+                new UserGrade
+                {
+                    Date = DateTime.Now,
+                    UserId = currentSessionObject.UserId,
+                    QuestionId = todaysQuestions[1].Id,
+                    Answer = HfQuestion2Answer.Value,
+                    Grade = HfQuestion2Answer.Value == todaysQuestions[1].CorrectChoice.Trim() ? todaysQuestions[1].Mark : 0
+                },
+                new UserGrade
+                {
+                    Date = DateTime.Now,
+                    UserId = currentSessionObject.UserId,
+                    QuestionId = todaysQuestions[2].Id,
+                    Answer = HfQuestion3Answer.Value,
+                    Grade = HfQuestion3Answer.Value == todaysQuestions[2].CorrectChoice.Trim() ? todaysQuestions[2].Mark : 0
+                }
+            };
+            UserGradeManager.AddUserAnswers(todaysUserGrades);
+            Response.Redirect(Request.RawUrl);
         }
 
         #endregion

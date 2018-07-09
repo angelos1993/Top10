@@ -1,4 +1,5 @@
-﻿using Top10.DAL.Model;
+﻿using System.Collections.Generic;
+using Top10.DAL.Model;
 
 namespace Top10.SessionManagement
 {
@@ -22,10 +23,7 @@ namespace Top10.SessionManagement
         public string UserArabicName { get; set; }
         public string UserEnglishName { get; set; }
         public bool IsAdmin { get; set; }
-
-        #endregion
-
-        #region Methods
+        public List<Question> QuestionsList { get; set; }
 
         #endregion
     }

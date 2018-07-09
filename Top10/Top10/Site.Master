@@ -60,7 +60,7 @@
         <div runat="server" ID="DivFeedback">
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
-                    <div class="center">
+                    <div class="feedback-div">
                         <a href="#" data-toggle="modal" data-target="#feedbackModal">قول رأيك</a>
                     </div>
                     <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalTitle" aria-hidden="true">

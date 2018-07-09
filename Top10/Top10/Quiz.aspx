@@ -19,7 +19,7 @@
     <div runat="server" id="DivNewQuiz">
         <div id="divStartGame" class="text-center">
             <p class="text-center">تعليمات ...</p>
-            <button type="button" class="btn btn-lg btn-success" onclick="startGame();"> إبدأ اللعبة</button>
+            <button type="button" class="btn btn-lg btn-success" onclick="startGame();">إبدأ اللعبة&nbsp;<i class="far fa-play-circle"></i></button>
         </div>
         <asp:Repeater runat="server" ID="RepQuestions" ItemType="Top10.DAL.Model.Question">
             <ItemTemplate>

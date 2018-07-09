@@ -11,6 +11,7 @@
     <script src="client/js/jquery.min.js"></script>
     <script src="client/js/bootstrap.min.js"></script>
     <script src="client/js/script.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -27,19 +28,25 @@
             <div class="collapse navbar-collapse" id="navbarItems">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <asp:HyperLink runat="server" ID="LnkBtnPlay" CssClass="nav-link" NavigateUrl="Quiz.aspx" Text="إلعب" />
+                        <asp:HyperLink runat="server" ID="LnkBtnPlay" CssClass="nav-link" NavigateUrl="Quiz.aspx">
+                            إلعب&nbsp;<i class="fas fa-gamepad"></i>
+                        </asp:HyperLink>
                     </li>
                     <li class="nav-item">
-                        <asp:HyperLink runat="server" ID="LnkBtnTopUsers" CssClass="nav-link" NavigateUrl="Top.aspx" Text="أعلي 10 درجات" />
+                        <asp:HyperLink runat="server" ID="LnkBtnTopUsers" CssClass="nav-link" NavigateUrl="Top.aspx">
+                            أعلي 10 درجات&nbsp;<i class="fas fa-trophy"></i>
+                        </asp:HyperLink>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">جروب الخدمة ع الفيسبوك</a>
+                        <a class="nav-link" href="#">جروب الخدمة ع الفيسبوك&nbsp;<i class="fab fa-facebook-square"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">قناة الخدمة ع اليوتيوب</a>
+                        <a class="nav-link" href="#">قناة الخدمة ع اليوتيوب&nbsp;<i class="fab fa-youtube"></i></a>
                     </li>
                     <li class="nav-item">
-                        <asp:LinkButton runat="server" ID="LnkBtnLogout" CssClass="nav-link" OnClick="LnkBtnLogout_OnClick">تسجيل الخروج</asp:LinkButton>
+                        <asp:LinkButton runat="server" ID="LnkBtnLogout" CssClass="nav-link" OnClick="LnkBtnLogout_OnClick">
+                            تسجيل الخروج&nbsp;<i class="fas fa-sign-out-alt"></i>
+                        </asp:LinkButton>
                     </li>
                 </ul>
             </div>
@@ -61,7 +68,7 @@
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
                     <div class="feedback-div">
-                        <a href="#" data-toggle="modal" data-target="#feedbackModal">قول رأيك</a>
+                        <a href="#" data-toggle="modal" data-target="#feedbackModal">قول رأيك&nbsp;<i class="far fa-comments"></i></a>
                     </div>
                     <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">

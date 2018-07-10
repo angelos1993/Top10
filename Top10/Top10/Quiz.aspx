@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Quiz.aspx.cs" Inherits="Top10.Quiz" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="client/js/script-quiz.js"></script>
+    <link href="client/css/animate.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Image runat="server" ID="ImgTop" CssClass="col img-seperator" ImageUrl="client/images/top.png" />

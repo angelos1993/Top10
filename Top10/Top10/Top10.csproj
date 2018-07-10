@@ -75,6 +75,7 @@
   <ItemGroup>
     <Content Include="Admin.aspx" />
     <Content Include="Angelos.aspx" />
+    <Content Include="client\css\animate.css" />
     <Content Include="client\css\bootstrap.min.css" />
     <Content Include="client\css\style.css" />
     <Content Include="client\images\bottom.png" />

@@ -31,8 +31,11 @@ function setTimer() {
                     dataType: "json"
                 });
             }
-            if (globalTimer <= 10 && $(".timer-div").hasClass("btn-success")) {
-                $(".timer-div").removeClass("btn-success").addClass("btn-danger");
+            if (globalTimer <= 40 && $(".timer-div").hasClass("btn-success")) {
+                $(".timer-div").removeClass("btn-success").addClass("btn-warning");
+            }
+            if (globalTimer <= 10 && $(".timer-div").hasClass("btn-warning")) {
+                $(".timer-div").removeClass("btn-warning").addClass("btn-danger");
                 $(".timer-div").addClass("infinite").addClass("animated").addClass("shake");
             }
             if (globalTimer <= 0) {

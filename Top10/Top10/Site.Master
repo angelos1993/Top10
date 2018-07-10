@@ -61,6 +61,10 @@
         <footer class="footer m-2">
             <div class="container">
                 <span class="col d-flex justify-content-center">خدمة ثانوي بمير &copy; 2018</span>
+                <span class="col d-flex justify-content-center">
+                    <a class="nav-link" href="#" title="جروب الخدمة ع الفيسبوك"><i class="fab fa-facebook-square"></i></a>
+                    <a class="nav-link" href="#" title="قناة الخدمة ع اليوتيوب"><i class="fab fa-youtube"></i></a>
+                </span>
                 <small class="col d-flex justify-content-center">صلوا لاجل الخدمة</small>
             </div>
         </footer>

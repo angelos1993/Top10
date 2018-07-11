@@ -16,10 +16,35 @@ namespace Top10.BLL
 
         #region Methods
 
-        public bool IsUserHasAnswersToday(int userId)
+        public List<TodaysQuestionsVm> GeTodaysQuestionsVms(int userId)
         {
-            return UnitOfWork.UserGradeRepository.Get(userGrade =>
-                userGrade.UserId == userId && SqlFunctions.DateDiff("DAY", userGrade.Date, DateTime.Now) == 0).Any();
+            var userGradesQueryable = UnitOfWork.UserGradeRepository.Get(userGrade =>
+                userGrade.UserId == userId && SqlFunctions.DateDiff("DAY", userGrade.Date, DateTime.Now) == 0);
+            var questionsQueryable = UnitOfWork.QuestionRepository.GetAll();
+            return userGradesQueryable.Join(questionsQueryable, userGrade => userGrade.QuestionId,
+                question => question.Id, (userGrade, question) => new TodaysQuestionsVm
+                {
+                    Question = question.Text,
+                    Mark = question.Mark,
+                    TrueAnswer = question.CorrectChoice.Trim() == "A"
+                        ? question.ChoiceA
+                        : question.CorrectChoice.Trim() == "B"
+                            ? question.ChoiceB
+                            : question.CorrectChoice.Trim() == "C"
+                                ? question.ChoiceC
+                                : question.CorrectChoice.Trim() == "D"
+                                    ? question.ChoiceD
+                                    : string.Empty,
+                    UserAnswer = userGrade.Answer.Trim() == "A"
+                        ? question.ChoiceA
+                        : userGrade.Answer.Trim() == "B"
+                            ? question.ChoiceB
+                            : userGrade.Answer.Trim() == "C"
+                                ? question.ChoiceC
+                                : userGrade.Answer.Trim() == "D"
+                                    ? question.ChoiceD
+                                    : "لم يتم الإختيار"
+                }).ToList();
         }
 
         public List<int> GetQuestionsIdsAnsweredByUser(int userId)

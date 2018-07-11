@@ -11,11 +11,50 @@
     <div runat="server" ID="DivAfterEndDate" class="alert alert-info text-center">
         <h1 class="text-center">لقد إنتهت اللعبة يوم <asp:Literal runat="server" ID="LtrEndDate" /> ، ترقبوا النتيجة</h1>
     </div>
-    <div runat="server" ID="DivUserHadAnsweredToday" class="alert alert-info text-center">
-        <h1 class="text-center">لقد قمت بالإجابة عن الأسئلة المتاحة لك اليوم .. نلقاك غذاً مع أسئلة جديدة</h1>
+    <div runat="server" id="DivUserHadAnsweredToday">
+        <div class="alert alert-info text-center">
+            <h1 class="text-center">لقد قمت بالإجابة عن الأسئلة المتاحة لك اليوم .. نلقاك غداً مع أسئلة جديدة</h1>
+        </div>
+        <div runat="server" ID="DivCongratsImage" class="row">
+            <img class="col" src="client/images/Congrats.jpg" />
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-12">
+                <asp:Repeater runat="server" ID="RepTodaysQuestionsAnswers" ItemType="Top10.DAL.VMs.TodaysQuestionsVm">
+                    <ItemTemplate>
+                        <ul class="list-unstyled">
+                            <li>
+                                <span class="badge badge-warning"><%# Container.ItemIndex + 1 %></span>
+                                <ul>
+                                    <li>
+                                        <strong>السؤال: </strong><%# Item.Question %>&nbsp;<mark>(<%# Item.Mark %>&nbsp;درجات)</mark>
+                                    </li>
+                                    <li>
+                                        <strong>الإجابة الصحيحة: </strong><%# Item.TrueAnswer %>
+                                    </li>
+                                    <li>
+                                        <strong>إجابتك: </strong><%# Item.UserAnswer %>&nbsp;
+                                        <i runat="server" visible="<%# Item.IsTrue %>" class="fas fa-check-circle text-success"></i>
+                                        <i runat="server" visible="<%# !Item.IsTrue %>" class="fas fa-times-circle text-danger"></i>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+            <div class="col-md-4 col-10">
+                <div class="card">
+                    <h5 class="card-header text-center">درجة اليوم</h5>
+                    <div class="card-body justify-content-center">
+                        <div runat="server" ID="DivTodaysGrade" class="text-center">20 / 20</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div runat="server" ID="DivUserTimeoutToday" class="alert alert-info text-center">
-        <h1 class="text-center">لقد إنتهي الوقت المتاح لك للإجابة لهذا اليوم .. نلقاك غذاً مع أسئلة جديدة</h1>
+        <h1 class="text-center">لقد إنتهي الوقت المتاح لك للإجابة لهذا اليوم .. نلقاك غداً مع أسئلة جديدة</h1>
     </div>
     <div runat="server" id="DivNewQuiz">
         <div id="divStartGame" class="text-center">
@@ -26,7 +65,7 @@
             <ItemTemplate>
                 <div class="card row d-none" id="divQuestion<%# Container.ItemIndex + 1 %>">
                     <h3 class="card-header text-center">
-                        السؤال رقم <%# Container.ItemIndex + 1 %>&nbsp;-&nbsp;<small>(<%# Item.Mark %> درجات)</small>
+                        السؤال رقم <%# Container.ItemIndex + 1 %>&nbsp;<small>(<%# Item.Mark %> درجات)</small>
                     </h3>
                     <div class="card-body justify-content-center">
                         <div class="card-title">

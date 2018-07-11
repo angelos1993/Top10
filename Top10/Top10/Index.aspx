@@ -9,6 +9,9 @@
                 <h4 class="card-header text-center">تسجيل الدخول</h4>
                 <div class="card-body">
                     <div class="form-group justify-content-center row">
+                        <div class="alert alert-info">إذا كنت من مخدومين خدمة ثانوي وليس لديك معلومات الدخول، من فضلك تواصل مع خادمك</div>
+                    </div>
+                    <div class="form-group justify-content-center row">
                         <asp:Label runat="server" ID="LblErrorMsg" Visible="False" CssClass="alert alert-danger" role="alert" />
                     </div>
                     <div class="form-group">

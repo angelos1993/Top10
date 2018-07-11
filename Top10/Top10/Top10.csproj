@@ -79,6 +79,7 @@
     <Content Include="client\css\bootstrap.min.css" />
     <Content Include="client\css\style.css" />
     <Content Include="client\images\bottom.png" />
+    <Content Include="client\images\Congrats.jpg" />
     <Content Include="client\images\header.png" />
     <Content Include="client\images\icon.ico" />
     <Content Include="client\images\top.png" />
@@ -192,6 +193,7 @@
     <Compile Include="DAL\Repositories\UserRepository.cs" />
     <Compile Include="DAL\Repositories\UserTimeRepository.cs" />
     <Compile Include="DAL\VMs\FeedbackVm.cs" />
+    <Compile Include="DAL\VMs\TodaysQuestionsVm.cs" />
     <Compile Include="DAL\VMs\TopUserVm.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

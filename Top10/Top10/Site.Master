@@ -38,10 +38,10 @@
                         </asp:HyperLink>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">جروب الخدمة ع الفيسبوك&nbsp;<i class="fab fa-facebook-square"></i></a>
+                        <a class="nav-link" target="_blank" href="https://www.facebook.com/groups/166256544048383/?ref=bookmarks">جروب الخدمة ع الفيسبوك&nbsp;<i class="fab fa-facebook-square"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">قناة الخدمة ع اليوتيوب&nbsp;<i class="fab fa-youtube"></i></a>
+                        <a class="nav-link" target="_blank" href="https://www.youtube.com/channel/UCmyik2oAUjRRJ1uOtgwlmjQ?view_as=subscriber">قناة الخدمة ع اليوتيوب&nbsp;<i class="fab fa-youtube"></i></a>
                     </li>
                     <li class="nav-item">
                         <asp:LinkButton runat="server" ID="LnkBtnLogout" CssClass="nav-link" OnClick="LnkBtnLogout_OnClick">
@@ -62,8 +62,8 @@
             <div class="container">
                 <span class="col d-flex justify-content-center">خدمة ثانوي بمير &copy; 2018</span>
                 <span class="col d-flex justify-content-center">
-                    <a class="nav-link" href="#" title="جروب الخدمة ع الفيسبوك"><i class="fab fa-facebook-square"></i></a>
-                    <a class="nav-link" href="#" title="قناة الخدمة ع اليوتيوب"><i class="fab fa-youtube"></i></a>
+                    <a class="nav-link" target="_blank" href="https://www.facebook.com/groups/166256544048383/?ref=bookmarks" title="جروب الخدمة ع الفيسبوك"><i class="fab fa-facebook-square"></i></a>
+                    <a class="nav-link" target="_blank" href="https://www.youtube.com/channel/UCmyik2oAUjRRJ1uOtgwlmjQ?view_as=subscriber" title="قناة الخدمة ع اليوتيوب"><i class="fab fa-youtube"></i></a>
                 </span>
                 <small class="col d-flex justify-content-center">صلوا لاجل الخدمة</small>
             </div>

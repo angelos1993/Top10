@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Services;
 using System.Web.UI;
 using Top10.BLL;
@@ -73,8 +74,15 @@ namespace Top10
                 else
                 {
                     var userTodaysTime = UserTimeManager.GetUserTodaysTime(currentSessionObject.UserId);
-                    if (UserGradeManager.IsUserHasAnswersToday(currentSessionObject.UserId))
+                    var todaysQuestionsVms = UserGradeManager.GeTodaysQuestionsVms(currentSessionObject.UserId);
+                    if (todaysQuestionsVms.Any())
                     {
+                        RepTodaysQuestionsAnswers.DataSource = todaysQuestionsVms;
+                        RepTodaysQuestionsAnswers.DataBind();
+                        var todaysGrade = todaysQuestionsVms.Where(questionsVm => questionsVm.IsTrue)
+                            .Sum(questionsVm => questionsVm.Mark);
+                        DivTodaysGrade.InnerText = $"{todaysGrade} / 20";
+                        DivCongratsImage.Visible = todaysGrade == 20;
                         DivUserHadAnsweredToday.Visible = true;
                         SetImagesVisibility(true);
                     }

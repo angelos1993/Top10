@@ -67,6 +67,33 @@ namespace Top10 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivUserHadAnsweredToday;
         
         /// <summary>
+        /// DivCongratsImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivCongratsImage;
+        
+        /// <summary>
+        /// RepTodaysQuestionsAnswers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepTodaysQuestionsAnswers;
+        
+        /// <summary>
+        /// DivTodaysGrade control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivTodaysGrade;
+        
+        /// <summary>
         /// DivUserTimeoutToday control.
         /// </summary>
         /// <remarks>

@@ -23,8 +23,6 @@ namespace Top10
         private List<User> AllUsers => _allUsers ?? (_allUsers = UserManager.GetAllUsers().ToList());
         private FeedbackManager _feedbackManager;
         private FeedbackManager FeedbackManager => _feedbackManager ?? (_feedbackManager = new FeedbackManager());
-        private UserGradeManager _userGradeManager;
-        private UserGradeManager UserGradeManager => _userGradeManager ?? (_userGradeManager = new UserGradeManager());
 
         #endregion
 

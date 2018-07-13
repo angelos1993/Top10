@@ -5,8 +5,8 @@
     <table class="table table-hover">
         <thead class="bg-light">
         <tr class="row">
-            <td class="text-center col-1">#</td>
-            <td class="text-center col-7"><strong>اسم المخدوم</strong></td>
+            <td class="text-center col-3">#</td>
+            <td class="text-center col-6"><strong>اسم المخدوم</strong></td>
             <td class="text-center col-3"><strong>الدرجة</strong></td>
         </tr>
         </thead>
@@ -14,8 +14,8 @@
         <asp:Repeater runat="server" ID="RepTopUsers" ItemType="Top10.DAL.VMs.TopUserVm">
             <ItemTemplate>
                 <tr class="row">
-                    <td class="text-center col-1"><%# Container.ItemIndex + 1 %></td>
-                    <td class="text-center col-7"><%# Item.Username %></td>
+                    <td class="text-center col-3"><%# Container.ItemIndex + 1 %></td>
+                    <td class="text-center col-6"><%# Item.Username %></td>
                     <td class="text-center col-3"><%# Item.TotalGrades %></td>
                 </tr>
             </ItemTemplate>

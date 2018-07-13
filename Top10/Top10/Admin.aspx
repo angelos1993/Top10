@@ -91,16 +91,16 @@
                         <table class="table table-hover">
                             <thead class="bg-light">
                                 <tr class="row">
-                                    <td class="text-center col-3"><strong>اسم المخدوم</strong></td>
-                                    <td class="text-center col-9"><strong>الرسالة</strong></td>
+                                    <td class="text-center col-4"><strong>اسم المخدوم</strong></td>
+                                    <td class="text-center col-8"><strong>الرسالة</strong></td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <asp:Repeater runat="server" ID="RepFeedbacks" ItemType="Top10.DAL.VMs.FeedbackVm">
                                     <ItemTemplate>
                                         <tr class="row">
-                                            <td class="text-center col-3"><%# Item.Username %></td>
-                                            <td class="text-center col-9"><%# Item.Message %></td>
+                                            <td class="text-center col-4"><%# Item.Username %></td>
+                                            <td class="text-center col-8"><%# Item.Message %></td>
                                         </tr>
                                     </ItemTemplate>
                                 </asp:Repeater>

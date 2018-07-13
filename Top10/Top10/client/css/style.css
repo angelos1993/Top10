@@ -1,8 +1,16 @@
 ﻿/*#region fonts */
 
+.font-normal {
+    font-family: "Times New Roman", Times, serif !important;
+}
+
 @font-face {
     font-family: AdvertisingBold;
     src: url('../fonts/AdvertisingBold.ttf');
+}
+
+.font-AdvertisingBold {
+    font-family: AdvertisingBold !important;
 }
 
 @font-face {
@@ -10,9 +18,17 @@
     src: url('../fonts/Motken Unicode Hor.ttf');
 }
 
+.font-MotkenUnicodeHor {
+    font-family: MotkenUnicodeHor !important;
+}
+
 @font-face {
     font-family: XpZibaBold;
     src: url('../fonts/xp-ziba-bold.ttf');
+}
+
+.font-XpZibaBold {
+    font-family: XpZibaBold !important;
 }
 
 /*#endregion */

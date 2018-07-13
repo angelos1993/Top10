@@ -15,8 +15,11 @@
         <div class="alert alert-info text-center">
             <h1 class="text-center">لقد قمت بالإجابة عن الأسئلة المتاحة لك اليوم .. نلقاك غداً مع أسئلة جديدة</h1>
         </div>
-        <div runat="server" ID="DivCongratsImage" class="row">
-            <img class="col" src="client/images/Congrats.jpg" />
+        <div runat="server" ID="DivCongratsImage" class="row justify-content-center">
+            <img class="col-10" src="client/images/Congrats.jpg" height="400px" />
+            <asp:HyperLink runat="server" ID="BtnShare" Target="_blank" CssClass="col-md-5 col-12 m-1 btn btn-primary">
+                شارك نتيجتك مع صحابك ع الفيسبوك&nbsp;<i class="fab fa-facebook-square"></i>
+            </asp:HyperLink>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-8 col-12">
@@ -58,7 +61,18 @@
     </div>
     <div runat="server" id="DivNewQuiz">
         <div id="divStartGame" class="text-center">
-            <p class="text-center">تعليمات ...</p>
+            <h1 class="text-center">تعليمات ...</h1>
+            <ul class="font-normal" style="font-family: AdvertisingBold;">
+                <li>اللعبة من إعداد وتصميم خدمة المرحلة الثانوية بمير، من خلال متخصصين.</li>
+                <li>الفترة المتاحة للعبة من الفترة 7/7 إلى 2018/7/17 فقط</li>
+                <li>لكل مخدوم لعبة خاصة به باسمه ورقمه السري، يتم الحصول على الرقم السري من خادم الفصل.</li>
+                <li>في حالة أي مشكلة خاصة بالرقم السري، يتم الرجوع للخادم لإعطاء رقم سري جديد.</li>
+                <li>كل يوم متاح لك 3 أسئلة على 3 مستويات يتم اجابتهم خلال الوقت المحدد على الشاشة (90 ثانية) في أي وقت خلال اليوم. مجموع درجات الأسئلة الثلاث (20 درجة)</li>
+                <li>الجوائز في نهاية المرحلة الثانية من الصيف لأول 10 فائزين.</li>
+                <li>الأسئلة متنوعة في كافة المجالات، وتم توزيعها بطريقة عشوائية من خلال الكمبيوتر.</li>
+                <li> استفسار أو تعليق، تواصل معنا من خلال زر "قول رأيك" الموجود علي يسار الشاشة، وسوف نرد عليك في أقرب فرصة.</li>
+                <li>أذكر الخدمة في صلواتك</li>
+            </ul>
             <button type="button" class="btn btn-lg btn-success" onclick="startGame();">إبدأ اللعبة&nbsp;<i class="far fa-play-circle"></i></button>
         </div>
         <asp:Repeater runat="server" ID="RepQuestions" ItemType="Top10.DAL.Model.Question">

@@ -41,6 +41,11 @@ namespace Top10.BLL
                 .FirstOrDefault();
         }
 
+        public User GetUserByUserId(int userId)
+        {
+            return UnitOfWork.UserRepository.Get(user => user.Id == userId).FirstOrDefault();
+        }
+
         #region Generate Passwords for all users
 
         public void GeneratePasswordsForAllUsers(bool isAll = false)

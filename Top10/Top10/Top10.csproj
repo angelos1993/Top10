@@ -88,6 +88,7 @@
     <Content Include="client\js\script-quiz.js" />
     <Content Include="client\js\script-index.js" />
     <Content Include="client\js\script.js" />
+    <Content Include="Congrats.aspx" />
     <Content Include="DAL\Model\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
@@ -147,6 +148,13 @@
     <Compile Include="BLL\UserGradeManager.cs" />
     <Compile Include="BLL\UserManager.cs" />
     <Compile Include="BLL\UserTimeManager.cs" />
+    <Compile Include="Congrats.aspx.cs">
+      <DependentUpon>Congrats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Congrats.aspx.designer.cs">
+      <DependentUpon>Congrats.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DAL\Model\Feedback.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

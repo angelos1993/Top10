@@ -83,6 +83,17 @@ namespace Top10
                             .Sum(questionsVm => questionsVm.Mark);
                         DivTodaysGrade.InnerText = $"{todaysGrade} / 20";
                         DivCongratsImage.Visible = todaysGrade == 20;
+
+                        #region Share Button
+
+                        var userId = currentSessionObject.UserId;
+                        var month = Now.Month < 10 ? $"0{Now.Month}" : $"{Now.Month}";
+                        var date = $"{Now.Year}{month}{Now.Day}";
+                        BtnShare.NavigateUrl =
+                            $"http://www.facebook.com/sharer/sharer.php?u=http://thanawy.somee.com/Congrats.aspx?uid={userId}&dt={date}";
+
+                        #endregion
+
                         DivUserHadAnsweredToday.Visible = true;
                         SetImagesVisibility(true);
                     }

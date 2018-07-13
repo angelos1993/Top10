@@ -90,7 +90,7 @@ namespace Top10
                         var month = Now.Month < 10 ? $"0{Now.Month}" : $"{Now.Month}";
                         var date = $"{Now.Year}{month}{Now.Day}";
                         BtnShare.NavigateUrl =
-                            $"http://www.facebook.com/sharer/sharer.php?u=http://thanawy.somee.com/Congrats.aspx?uid={userId}&dt={date}";
+                            $"http://www.facebook.com/sharer/sharer.php?u=http://thanawy.somee.com/Congrats.aspx?q={userId}a{date}";
 
                         #endregion
 

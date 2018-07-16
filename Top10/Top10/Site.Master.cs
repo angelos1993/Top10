@@ -40,6 +40,7 @@ namespace Top10
                 Message = TxtFeedback.Text,
                 UserId = SessionManager.CurrentSessionObject.UserId
             });
+            TxtFeedback.Text = string.Empty;
         }
 
         #endregion

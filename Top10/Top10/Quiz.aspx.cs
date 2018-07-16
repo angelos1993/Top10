@@ -139,35 +139,44 @@ namespace Top10
         private void SubmitAnswers()
         {
             var currentSessionObject = SessionManager.CurrentSessionObject;
-            var todaysQuestions = currentSessionObject.QuestionsList;
-            var todaysUserGrades = new List<UserGrade>
+            if (!UserGradeManager.IsUserAnsweredToday(currentSessionObject.UserId))
             {
-                new UserGrade
+                var todaysQuestions = currentSessionObject.QuestionsList;
+                var todaysUserGrades = new List<UserGrade>
                 {
-                    Date = DateTime.Now,
-                    UserId = currentSessionObject.UserId,
-                    QuestionId = todaysQuestions[0].Id,
-                    Answer = HfQuestion1Answer.Value,
-                    Grade = HfQuestion1Answer.Value == todaysQuestions[0].CorrectChoice.Trim() ? todaysQuestions[0].Mark : 0
-                },
-                new UserGrade
-                {
-                    Date = DateTime.Now,
-                    UserId = currentSessionObject.UserId,
-                    QuestionId = todaysQuestions[1].Id,
-                    Answer = HfQuestion2Answer.Value,
-                    Grade = HfQuestion2Answer.Value == todaysQuestions[1].CorrectChoice.Trim() ? todaysQuestions[1].Mark : 0
-                },
-                new UserGrade
-                {
-                    Date = DateTime.Now,
-                    UserId = currentSessionObject.UserId,
-                    QuestionId = todaysQuestions[2].Id,
-                    Answer = HfQuestion3Answer.Value,
-                    Grade = HfQuestion3Answer.Value == todaysQuestions[2].CorrectChoice.Trim() ? todaysQuestions[2].Mark : 0
-                }
-            };
-            UserGradeManager.AddUserAnswers(todaysUserGrades);
+                    new UserGrade
+                    {
+                        Date = DateTime.Now,
+                        UserId = currentSessionObject.UserId,
+                        QuestionId = todaysQuestions[0].Id,
+                        Answer = HfQuestion1Answer.Value,
+                        Grade = HfQuestion1Answer.Value == todaysQuestions[0].CorrectChoice.Trim()
+                            ? todaysQuestions[0].Mark
+                            : 0
+                    },
+                    new UserGrade
+                    {
+                        Date = DateTime.Now,
+                        UserId = currentSessionObject.UserId,
+                        QuestionId = todaysQuestions[1].Id,
+                        Answer = HfQuestion2Answer.Value,
+                        Grade = HfQuestion2Answer.Value == todaysQuestions[1].CorrectChoice.Trim()
+                            ? todaysQuestions[1].Mark
+                            : 0
+                    },
+                    new UserGrade
+                    {
+                        Date = DateTime.Now,
+                        UserId = currentSessionObject.UserId,
+                        QuestionId = todaysQuestions[2].Id,
+                        Answer = HfQuestion3Answer.Value,
+                        Grade = HfQuestion3Answer.Value == todaysQuestions[2].CorrectChoice.Trim()
+                            ? todaysQuestions[2].Mark
+                            : 0
+                    }
+                };
+                UserGradeManager.AddUserAnswers(todaysUserGrades);
+            }
             Response.Redirect(Request.RawUrl);
         }
 

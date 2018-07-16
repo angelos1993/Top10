@@ -16,10 +16,15 @@ namespace Top10.BLL
 
         #region Methods
 
+        public IQueryable<UserGrade> GetTodaysUserGradesQueryable(int userId)
+        {
+            return UnitOfWork.UserGradeRepository.Get(userGrade =>
+                userGrade.UserId == userId && SqlFunctions.DateDiff("DAY", userGrade.Date, DateTime.Now) == 0);
+        }
+
         public List<TodaysQuestionsVm> GeTodaysQuestionsVms(int userId)
         {
-            var userGradesQueryable = UnitOfWork.UserGradeRepository.Get(userGrade =>
-                userGrade.UserId == userId && SqlFunctions.DateDiff("DAY", userGrade.Date, DateTime.Now) == 0);
+            var userGradesQueryable = GetTodaysUserGradesQueryable(userId);
             var questionsQueryable = UnitOfWork.QuestionRepository.GetAll();
             return userGradesQueryable.Join(questionsQueryable, userGrade => userGrade.QuestionId,
                 question => question.Id, (userGrade, question) => new TodaysQuestionsVm
@@ -67,6 +72,11 @@ namespace Top10.BLL
         public void AddUserAnswers(List<UserGrade> userGradesList)
         {
             userGradesList.ForEach(userGrade => UnitOfWork.UserGradeRepository.Add(userGrade));
+        }
+
+        public bool IsUserAnsweredToday(int userId)
+        {
+            return GetTodaysUserGradesQueryable(userId).Any();
         }
 
         #endregion

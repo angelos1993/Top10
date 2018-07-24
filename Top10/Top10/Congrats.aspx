@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title><asp:Literal runat="server" ID="LtrTitle" /></title>
+    <script src="client/js/jquery.min.js"></script>    
+    </script><script src="client/js/script.js"></script>
     <link href="client/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body class="container">
